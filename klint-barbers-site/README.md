@@ -10,6 +10,22 @@ no build step, no runtime dependencies — deployable on any static host.
 | `index.html` | The complete site (markup, styles, scripts) |
 | `robots.txt` | Crawler policy + sitemap pointer |
 | `sitemap.xml` | Single-URL sitemap for search engines |
+| `demos/` | Demo folder — see below |
+
+## Demos (`demos/`)
+
+| Demo | Language | Notes |
+|---|---|---|
+| `demos/nl/index.html` | Dutch | Copy of the production site above |
+| `demos/fr/index.html` | French + English | FR by default, **FR ⇄ EN toggle top right** |
+| `demos/index.html` | — | Small chooser page linking both demos |
+
+The French demo translates everything live when toggled — page copy, menus,
+meta title/description, aria-labels, the booking widget (services, day strip,
+summary) and the WhatsApp confirmation message. The choice is remembered
+(localStorage) and the visitor's current booking selection survives the
+switch. To add or change strings, edit the `I18N` dictionary at the top of
+the inline script in `demos/fr/index.html`.
 
 ## Online booking (Cal.com)
 
