@@ -39,7 +39,8 @@ widget falls back to the WhatsApp flow, which works out of the box.**
    booking notice (e.g. 1 hour) under each event type's *Limits* tab.
 4. **Connect your calendar** (Apps → Google Calendar / Outlook) so booked
    slots are blocked automatically and double bookings are impossible. Under
-   *Workflows* you can add automatic e-mail/SMS reminders for customers.
+   *Workflows* you can add automatic e-mail reminders for customers (SMS/
+   WhatsApp reminders require a paid Cal.com team plan).
 5. **Flip the switch**: in `index.html`, find `CAL_CONFIG` and set
    `enabled: true` (and `username` if it differs). Done.
 
@@ -48,8 +49,10 @@ widget falls back to the WhatsApp flow, which works out of the box.**
 - The submit button becomes **"Bevestig Afspraak"** (calendar icon) and opens
   the Cal.com overlay in the page, pre-filled with the chosen service and day —
   showing *real* availability, in the site's dark/gold theme.
-- If the embed script is blocked or JavaScript is unavailable, the button's
-  plain link goes to the same Cal.com booking page — booking always works.
+- If the Cal.com embed script is blocked or fails to load, the button's
+  plain link goes to the same Cal.com booking page, so booking still works.
+  (The widget itself needs JavaScript; for the rare no-JS visitor the
+  WhatsApp button and the phone links are the working fallback.)
 - The floating WhatsApp button stays, so customers can still reach you directly.
 - The Cal.com embed script is loaded lazily, only when the visitor scrolls
   near the booking section — it never slows down page load.
@@ -77,11 +80,38 @@ page load.
 - **Services & prices**: the service cards in the *Diensten* section (HTML) and
   `BOOKING_CONFIG.services` (JS). When Cal.com is enabled, also update the
   event types there.
-- **Phone number**: appears in the header, footer, the two WhatsApp links
-  (`BOOKING_CONFIG.whatsapp`, digits only) and JSON-LD.
+- **Phone number**: appears in the header, footer, and JSON-LD (`tel:` links
+  and display text). Both WhatsApp links — the booking widget and the floating
+  button — read `BOOKING_CONFIG.whatsapp` (digits only), so that's the single
+  place to change the WhatsApp number.
 - ⚠️ **Address check**: the footer and JSON-LD say *Hofnarlaan 2*, but the
   photo caption in the *Over Ons* section says *Voorstraat 88*. Both were left
-  as-is (visible content) — correct whichever one is wrong.
+  as-is (visible content) — correct whichever one is wrong. While you're at
+  it, add the postcode to the JSON-LD `address` (`"postalCode": "…"`) —
+  it strengthens the match with your Google Business Profile.
+
+## Before launch — owner decisions
+
+Things that were deliberately **not** changed because they alter the visible
+design or need information only you have:
+
+- **Facebook link**: the footer icon points at `facebook.com` (a placeholder).
+  Point it at the real page — and add that URL to `sameAs` in the JSON-LD —
+  or remove the icon.
+- **Photos**: the hero/section images and the social-share image
+  (`og:image`) are Unsplash stock served from Unsplash's CDN. For launch,
+  self-host real shop photos (social image: 1200×630) so previews never
+  break and the imagery is genuinely yours.
+- **Text contrast (WCAG AA)**: three inherited color pairs fail the 4.5:1
+  contrast minimum: the grey `#6e6e6e` body copy on the cream sections
+  (≈3.9:1), the gold "— Over Ons —"-style labels on cream (≈1.7:1), and the
+  footer copyright line (≈3.4:1). Fixing them changes the look (e.g. darken
+  the grey to `#595959`), so it's your call — everything else on the page
+  passes.
+- **Privacy (GDPR/ePrivacy)**: Google Fonts and — once configured — the
+  Instagram embeds load from third-party servers without a consent banner,
+  which EU regulators have objected to. The robust fixes are self-hosting
+  the three font families and making the Instagram tiles click-to-load.
 
 ## Performance & robustness (what was done)
 
@@ -108,3 +138,15 @@ page load.
 Upload the three files to any static host — Netlify, Vercel, Cloudflare Pages,
 GitHub Pages, or classic hosting. If the domain is not `klintbarbers.nl`,
 update the URLs in: canonical/OG tags, JSON-LD, `robots.txt`, `sitemap.xml`.
+Update `<lastmod>` in `sitemap.xml` when you deploy content changes.
+
+If your host lets you set response headers, a Content-Security-Policy header
+is a worthwhile hardening step for the Cal.com go-live (the embed script runs
+with full page access). A working policy for this site:
+
+```
+default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com;
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com;
+frame-src https://www.instagram.com https://app.cal.com; connect-src https://app.cal.com
+```
