@@ -1,0 +1,1617 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Klint Barbers — Premium Barbershop in Utrecht</title>
+  <meta name="description" content="Premium barbershop in Utrecht. Knippen, baard trimmen en hot towel shave. Online te boeken." />
+  <meta name="theme-color" content="#0c0c0c" />
+  <link rel="canonical" href="https://klintbarbers.nl/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Klint Barbers" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:title" content="Klint Barbers — Premium Barbershop in Utrecht" />
+  <meta property="og:description" content="Premium barbershop in Utrecht. Knippen, baard trimmen en hot towel shave. Online te boeken." />
+  <meta property="og:url" content="https://klintbarbers.nl/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1200&h=630&q=80&auto=format&fit=crop" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Crect%20width='24'%20height='24'%20rx='4'%20fill='%230c0c0c'/%3E%3Cg%20fill='none'%20stroke='%23d4a73e'%20stroke-width='1.7'%3E%3Ccircle%20cx='7'%20cy='7.5'%20r='2.3'/%3E%3Ccircle%20cx='7'%20cy='16.5'%20r='2.3'/%3E%3Cpath%20d='M19.5%205%209%2015.2M14.6%2014.6%2019.5%2019.5M8.9%209%2011.8%2012'/%3E%3C/g%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://www.instagram.com" />
+  <!-- The hero background is the LCP element — fetch it at top priority -->
+  <link rel="preload" as="image" fetchpriority="high" href="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=2000&q=80&auto=format&fit=crop" />
+
+
+  <style>
+    :root {
+      --bg-cream: #ede0c8;
+      --bg-dark: #0c0c0c;
+      --bg-darker: #080808;
+      --card-dark: #181818;
+      --bg-coffee: #141210;
+      --bg-warm: #ede0c8;
+      --gold: #d4a73e;
+      --gold-bright: #e8b94d;
+      --text-dark: #1a1a1a;
+      --text-cream: #f4ede2;
+      --text-muted: #6e6e6e;
+      --whatsapp: #25d366;
+      --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px -8px rgba(0, 0, 0, 0.12), 0 24px 48px -24px rgba(0, 0, 0, 0.10);
+      --shadow-card-dark: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+      --shadow-cta: 0 2px 4px rgba(212, 167, 62, 0.2), 0 8px 24px -8px rgba(212, 167, 62, 0.45);
+      --shadow-floating: 0 4px 12px rgba(0, 0, 0, 0.15), 0 16px 48px -16px rgba(0, 0, 0, 0.3);
+      --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg-cream);
+      color: var(--text-dark);
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Display type */
+    .display {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+    }
+
+    /* Eyebrow label */
+    .eyebrow {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .mono-num {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+      font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+      font-size: 13px;
+      padding: 1rem 2rem;
+      border-radius: 2px;
+      transition: transform 240ms var(--ease-out-soft), background-color 240ms var(--ease-out-soft), color 240ms var(--ease-out-soft), box-shadow 240ms var(--ease-out-soft), border-color 240ms var(--ease-out-soft);
+      will-change: transform;
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--gold-bright);
+      outline-offset: 3px;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--bg-dark);
+      box-shadow: var(--shadow-cta);
+    }
+    .btn-gold:hover {
+      background: var(--gold-bright);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(212, 167, 62, 0.25), 0 12px 32px -8px rgba(212, 167, 62, 0.55);
+    }
+    .btn-gold:active { transform: translateY(0); }
+    .btn-outline-light {
+      background: transparent;
+      color: var(--text-cream);
+      border: 1px solid rgba(244, 237, 226, 0.35);
+    }
+    .btn-outline-light:hover {
+      background: var(--text-cream);
+      color: var(--bg-dark);
+      border-color: var(--text-cream);
+    }
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--text-dark);
+      border: 1px solid var(--text-dark);
+    }
+    .btn-outline-dark:hover {
+      background: var(--text-dark);
+      color: var(--text-cream);
+    }
+
+    /* Header */
+    .site-header {
+      transition: background-color 240ms var(--ease-out-soft), backdrop-filter 240ms var(--ease-out-soft), border-color 240ms var(--ease-out-soft);
+      background: rgba(12, 12, 12, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-bottom: 1px solid transparent;
+    }
+    .site-header.scrolled {
+      background: rgba(12, 12, 12, 0.92);
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      border-bottom-color: rgba(244, 237, 226, 0.08);
+    }
+    .nav-link {
+      color: var(--text-cream);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 200ms var(--ease-out-soft);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute; left: 0; right: 0; bottom: 0;
+      height: 1px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 240ms var(--ease-out-soft);
+    }
+    .nav-link:hover { color: var(--gold); }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--bg-dark);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(12, 12, 12, 0.55) 0%, rgba(12, 12, 12, 0.82) 100%),
+        url("https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=2000&q=80&auto=format&fit=crop") center/cover no-repeat;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Stats band */
+    .stats-band {
+      background:
+        radial-gradient(60% 80% at 20% 20%, rgba(212, 167, 62, 0.10), transparent 60%),
+        radial-gradient(50% 70% at 90% 80%, rgba(212, 167, 62, 0.06), transparent 60%),
+        var(--bg-coffee);
+      color: var(--text-cream);
+      border-top: 1px solid rgba(212, 167, 62, 0.18);
+      border-bottom: 1px solid rgba(212, 167, 62, 0.18);
+    }
+
+    /* Service card (dark) */
+    .service-card {
+      background: var(--card-dark);
+      border: 1px solid rgba(244, 237, 226, 0.06);
+      padding: 2rem;
+      transition: transform 320ms var(--ease-out-soft), border-color 320ms var(--ease-out-soft), box-shadow 320ms var(--ease-out-soft);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 167, 62, 0.4);
+      box-shadow: var(--shadow-card-dark);
+    }
+
+    /* Why-us seal icon */
+    .seal {
+      width: 64px; height: 64px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      background: rgba(212, 167, 62, 0.08);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--gold);
+    }
+
+    /* Process card */
+    .proces-card {
+      background: #e4d6c0;
+      border: 1px solid rgba(61, 45, 31, 0.10);
+      padding: 2rem;
+      transition: transform 320ms var(--ease-out-soft), background-color 320ms var(--ease-out-soft), border-color 320ms var(--ease-out-soft);
+    }
+    .proces-card:hover {
+      transform: translateY(-3px);
+      background: #dccab0;
+      border-color: rgba(212, 167, 62, 0.5);
+    }
+
+    /* Review card */
+    .review-card {
+      background: var(--card-dark);
+      border: 1px solid rgba(244, 237, 226, 0.08);
+      padding: 2rem;
+      transition: border-color 320ms var(--ease-out-soft), transform 320ms var(--ease-out-soft);
+    }
+    .review-card:hover {
+      border-color: rgba(212, 167, 62, 0.4);
+      transform: translateY(-3px);
+    }
+
+    /* Gallery (legacy, kept for fallback) */
+    .gallery-tile {
+      position: relative; overflow: hidden;
+      background: var(--bg-dark);
+    }
+    .gallery-tile img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 600ms var(--ease-out-soft);
+    }
+    .gallery-tile::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12, 12, 12, 0.55), transparent 55%);
+      opacity: 0;
+      transition: opacity 320ms var(--ease-out-soft);
+    }
+    .gallery-tile:hover img { transform: scale(1.05); }
+    .gallery-tile:hover::after { opacity: 1; }
+
+    /* Instagram embed grid */
+    .ig-card {
+      position: relative;
+      background: var(--card-dark);
+      border: 1px solid rgba(212, 167, 62, 0.12);
+      overflow: hidden;
+      transition: border-color 320ms var(--ease-out-soft), transform 320ms var(--ease-out-soft);
+    }
+    .ig-card:hover {
+      border-color: rgba(212, 167, 62, 0.4);
+      transform: translateY(-3px);
+    }
+    .ig-card iframe {
+      display: block;
+      width: 100%;
+      min-width: 100%;
+      height: 640px;
+      border: 0;
+      background: var(--card-dark);
+    }
+    /* Loading skeleton inside ig-card */
+    .ig-card .ig-skel {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(244, 237, 226, 0.4);
+      pointer-events: none;
+    }
+
+    /* ===== BOOKING WIDGET ===== */
+    .booking-widget {
+      background: var(--card-dark);
+      border: 1px solid rgba(212, 167, 62, 0.18);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    @media (min-width: 768px) {
+      .booking-widget { padding: 2.5rem; gap: 2rem; }
+    }
+    .bw-step {
+      transition: opacity 320ms var(--ease-out-soft);
+    }
+    .bw-step--disabled { opacity: 0.4; pointer-events: none; }
+    .bw-step-label {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-cream);
+      margin-bottom: 1.25rem;
+    }
+    .bw-step-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--gold);
+      letter-spacing: 0;
+    }
+
+    /* Service grid */
+    .bw-service-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    @media (min-width: 640px) {
+      .bw-service-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .bw-service {
+      background: rgba(244, 237, 226, 0.02);
+      border: 1px solid rgba(244, 237, 226, 0.08);
+      padding: 1rem 1.1rem;
+      text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      color: var(--text-cream);
+      cursor: pointer;
+      transition: border-color 200ms var(--ease-out-soft), background-color 200ms var(--ease-out-soft);
+    }
+    .bw-service:hover {
+      border-color: rgba(212, 167, 62, 0.4);
+      background: rgba(212, 167, 62, 0.04);
+    }
+    .bw-service.is-selected {
+      border-color: var(--gold);
+      background: rgba(212, 167, 62, 0.08);
+    }
+    .bw-service-name { font-weight: 600; font-size: 14px; }
+    .bw-service-meta { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+    /* Date strip */
+    .bw-date-strip {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(212, 167, 62, 0.3) transparent;
+    }
+    .bw-date-strip::-webkit-scrollbar { height: 6px; }
+    .bw-date-strip::-webkit-scrollbar-thumb { background: rgba(212, 167, 62, 0.3); border-radius: 3px; }
+    .bw-date {
+      flex-shrink: 0;
+      background: rgba(244, 237, 226, 0.02);
+      border: 1px solid rgba(244, 237, 226, 0.08);
+      padding: 0.75rem 0.85rem;
+      min-width: 78px;
+      text-align: center;
+      cursor: pointer;
+      color: var(--text-cream);
+      transition: border-color 200ms var(--ease-out-soft), background-color 200ms var(--ease-out-soft);
+    }
+    .bw-date:hover {
+      border-color: rgba(212, 167, 62, 0.4);
+      background: rgba(212, 167, 62, 0.04);
+    }
+    .bw-date.is-selected {
+      border-color: var(--gold);
+      background: rgba(212, 167, 62, 0.08);
+    }
+    .bw-date-day {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(244, 237, 226, 0.55);
+      margin-bottom: 4px;
+    }
+    .bw-date.is-selected .bw-date-day { color: var(--gold); }
+    .bw-date-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      line-height: 1;
+    }
+    .bw-date-month {
+      font-size: 10px;
+      margin-top: 4px;
+      color: rgba(244, 237, 226, 0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Time grid */
+    .bw-time-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    @media (min-width: 640px) {
+      .bw-time-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .bw-time-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    .bw-time {
+      background: rgba(244, 237, 226, 0.02);
+      border: 1px solid rgba(244, 237, 226, 0.08);
+      padding: 0.7rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      color: var(--text-cream);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+      transition: border-color 200ms var(--ease-out-soft), background-color 200ms var(--ease-out-soft);
+    }
+    .bw-time:hover {
+      border-color: rgba(212, 167, 62, 0.4);
+      background: rgba(212, 167, 62, 0.04);
+    }
+    .bw-time.is-selected {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--bg-dark);
+      font-weight: 600;
+    }
+    .bw-empty-msg {
+      color: rgba(244, 237, 226, 0.55);
+      font-size: 14px;
+      padding: 1rem 0;
+      display: none;
+    }
+    .bw-empty-msg.show { display: block; }
+
+    /* Submit row */
+    .bw-submit-row {
+      border-top: 1px solid rgba(244, 237, 226, 0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    @media (min-width: 768px) {
+      .bw-submit-row { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    .bw-summary {
+      color: rgba(244, 237, 226, 0.75);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .bw-summary strong { color: var(--gold); font-weight: 600; }
+    .bw-submit-btn[aria-disabled="true"] {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* Floating WhatsApp — recoloured to brand gold */
+    .whatsapp-fab {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      z-index: 60;
+      width: 56px; height: 56px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--bg-dark);
+      display: inline-flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(212, 167, 62, 0.35), 0 12px 32px -8px rgba(212, 167, 62, 0.45);
+      transition: transform 220ms var(--ease-spring), box-shadow 220ms var(--ease-out-soft), background-color 220ms var(--ease-out-soft);
+    }
+    .whatsapp-fab:hover {
+      background: var(--gold-bright);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 16px rgba(212, 167, 62, 0.45), 0 16px 40px -8px rgba(212, 167, 62, 0.55);
+    }
+    .whatsapp-fab::before {
+      content: '';
+      position: absolute; inset: -6px;
+      border-radius: 999px;
+      border: 2px solid rgba(212, 167, 62, 0.5);
+      animation: pulse-ring 2.4s var(--ease-out-soft) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.9); opacity: 0.75; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    /* Mobile menu */
+    .mobile-nav {
+      position: fixed; inset: 64px 0 0 0;
+      background: var(--bg-dark);
+      color: var(--text-cream);
+      z-index: 50;
+      transform: translateX(100%);
+      transition: transform 320ms var(--ease-out-soft);
+      overflow-y: auto;
+    }
+    .mobile-nav.open { transform: translateX(0); }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 800ms var(--ease-out-soft), transform 800ms var(--ease-out-soft);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Logo wordmark */
+    .wordmark {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Star row */
+    .stars {
+      display: inline-flex;
+      gap: 2px;
+      color: var(--gold);
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* Headings on dark sections override default */
+    .on-dark h1, .on-dark h2, .on-dark h3 { color: var(--text-cream); }
+    .on-dark p { color: rgba(244, 237, 226, 0.75); }
+
+    /* Reserve the embed height before the iframe is lazily injected,
+       so tiles never collapse or shift the layout */
+    .ig-card { min-height: 640px; }
+
+    /* Skip link — invisible until keyboard-focused */
+    .skip-link {
+      position: fixed;
+      top: -100px; left: 1rem;
+      z-index: 100;
+      background: var(--gold);
+      color: var(--bg-dark);
+      padding: 0.6rem 1.2rem;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      border-radius: 2px;
+      transition: top 160ms var(--ease-out-soft);
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* Respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .whatsapp-fab::before { animation: none; }
+      .reveal { opacity: 1; transform: none; }
+      *, ::before, ::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+
+  <!-- JSON-LD — keep opening hours in sync with the footer and BOOKING_CONFIG -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "@id": "https://klintbarbers.nl/#barbershop",
+    "name": "Klint Barbers",
+    "image": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1200&h=630&q=80&auto=format&fit=crop",
+    "telephone": "+31 6 42265456",
+    "email": "info@klintbarbers.nl",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hofnarlaan 2",
+      "addressLocality": "Utrecht",
+      "addressCountry": "NL"
+    },
+    "url": "https://klintbarbers.nl",
+    "sameAs": ["https://www.instagram.com/klintbarbers/"],
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "11:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "21:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "13:00", "closes": "20:00" }
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "126" }
+  }
+  </script>
+  <!-- Tailwind CSS, precompiled for production (replaces cdn.tailwindcss.com runtime compiler) -->
+  <style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:JetBrains Mono,ui-monospace,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.bottom-5{bottom:1.25rem}.bottom-8{bottom:2rem}.left-0{left:0}.left-1\/2{left:50%}.left-5{left:1.25rem}.right-0{right:0}.right-5{right:1.25rem}.top-0{top:0}.z-40{z-index:40}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-14{margin-bottom:3.5rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-12{margin-top:3rem}.mt-5{margin-top:1.25rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.aspect-\[4\/5\]{aspect-ratio:4/5}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-9{height:2.25rem}.h-full{height:100%}.h-px{height:1px}.min-h-full{min-height:100%}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-5{width:1.25rem}.w-9{width:2.25rem}.w-full{width:100%}.w-px{width:1px}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-\[1280px\]{max-width:1280px}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.max-w-xs{max-width:20rem}.flex-shrink{flex-shrink:1}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-y-8{row-gap:2rem}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-2\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.625rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.625rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:9999px}.rounded-sm{border-radius:.125rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-brand-coffee\/30{border-color:rgba(61,45,31,.3)}.border-brand-cream\/10{border-color:hsla(37,45%,92%,.1)}.border-brand-cream\/20{border-color:hsla(37,45%,92%,.2)}.bg-brand-coffee\/\[0\.06\]{background-color:rgba(61,45,31,.06)}.bg-brand-cream{--tw-bg-opacity:1;background-color:rgb(244 237 226/var(--tw-bg-opacity,1))}.bg-brand-cream\/30{background-color:hsla(37,45%,92%,.3)}.bg-brand-dark{--tw-bg-opacity:1;background-color:rgb(12 12 12/var(--tw-bg-opacity,1))}.bg-brand-darker{--tw-bg-opacity:1;background-color:rgb(8 8 8/var(--tw-bg-opacity,1))}.object-cover{-o-object-fit:cover;object-fit:cover}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-12{padding-bottom:3rem}.pb-16{padding-bottom:4rem}.pb-8{padding-bottom:2rem}.pt-10{padding-top:2.5rem}.pt-16{padding-top:4rem}.pt-24{padding-top:6rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.font-serif{font-family:Playfair Display,Georgia,serif}.\!text-\[10px\]{font-size:10px!important}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-widest{letter-spacing:.1em}.\!text-brand-cream\/50{color:hsla(37,45%,92%,.5)!important}.\!text-brand-cream\/70{color:hsla(37,45%,92%,.7)!important}.\!text-brand-text\/70{color:rgba(26,26,26,.7)!important}.text-brand-coffee{--tw-text-opacity:1;color:rgb(61 45 31/var(--tw-text-opacity,1))}.text-brand-cream{--tw-text-opacity:1;color:rgb(244 237 226/var(--tw-text-opacity,1))}.text-brand-cream\/40{color:hsla(37,45%,92%,.4)}.text-brand-cream\/65{color:hsla(37,45%,92%,.65)}.text-brand-cream\/70{color:hsla(37,45%,92%,.7)}.text-brand-cream\/75{color:hsla(37,45%,92%,.75)}.text-brand-cream\/80{color:hsla(37,45%,92%,.8)}.text-brand-cream\/85{color:hsla(37,45%,92%,.85)}.text-brand-gold{--tw-text-opacity:1;color:rgb(212 167 62/var(--tw-text-opacity,1))}.text-brand-muted{--tw-text-opacity:1;color:rgb(110 110 110/var(--tw-text-opacity,1))}.text-brand-text{--tw-text-opacity:1;color:rgb(26 26 26/var(--tw-text-opacity,1))}.text-brand-text\/30{color:rgba(26,26,26,.3)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.outline{outline-style:solid}.blur{--tw-blur:blur(8px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-filter{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.hover\:border-brand-gold:hover{--tw-border-opacity:1;border-color:rgb(212 167 62/var(--tw-border-opacity,1))}.hover\:text-brand-gold:hover{--tw-text-opacity:1;color:rgb(212 167 62/var(--tw-text-opacity,1))}.hover\:text-brand-goldBright:hover{--tw-text-opacity:1;color:rgb(232 185 77/var(--tw-text-opacity,1))}.hover\:text-brand-text:hover{--tw-text-opacity:1;color:rgb(26 26 26/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:text-6xl{font-size:3.75rem;line-height:1}}@media (min-width:768px){.md\:col-span-2{grid-column:span 2/span 2}.md\:col-span-3{grid-column:span 3/span 3}.md\:col-span-4{grid-column:span 4/span 4}.md\:mb-16{margin-bottom:4rem}.md\:mb-20{margin-bottom:5rem}.md\:block{display:block}.md\:inline-flex{display:inline-flex}.md\:h-20{height:5rem}.md\:grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:gap-10{gap:2.5rem}.md\:gap-6{gap:1.5rem}.md\:gap-7{gap:1.75rem}.md\:border-l{border-left-width:1px}.md\:border-brand-cream\/15{border-color:hsla(37,45%,92%,.15)}.md\:px-10{padding-left:2.5rem;padding-right:2.5rem}.md\:py-14{padding-top:3.5rem;padding-bottom:3.5rem}.md\:py-28{padding-top:7rem;padding-bottom:7rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}}@media (min-width:1024px){.lg\:col-span-6{grid-column:span 6/span 6}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:gap-16{gap:4rem}.lg\:pl-8{padding-left:2rem}.lg\:text-6xl{font-size:3.75rem;line-height:1}.lg\:text-8xl{font-size:6rem;line-height:1}}</style>
+</head>
+
+<body class="antialiased">
+
+  <a class="skip-link" href="#main">Naar inhoud</a>
+
+  <!-- ============ HEADER ============ -->
+  <header id="header" class="site-header fixed top-0 left-0 right-0 z-40">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+      <div class="h-16 md:h-20 flex items-center justify-between gap-6">
+
+        <!-- Logo -->
+        <a href="#top" aria-label="Klint Barbers — home" class="wordmark text-xl md:text-2xl text-brand-cream">
+          KLINT<span class="text-brand-gold">BARBER</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-10">
+          <a href="#top" class="nav-link">Home</a>
+          <a href="#boeken" class="nav-link">Boeken</a>
+          <a href="#over" class="nav-link">Over Ons</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Phone + mobile toggle -->
+        <div class="flex items-center gap-4">
+          <a href="tel:+31642265456" class="hidden md:inline-flex items-center gap-2 text-brand-gold hover:text-brand-goldBright text-sm font-medium" style="transition: color 200ms var(--ease-out-soft);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="mono-num">+31 6 42265456</span>
+          </a>
+          <!-- Mobile menu toggle -->
+          <button id="menu-toggle" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 text-brand-cream" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span class="block w-5 h-px bg-brand-cream"></span>
+            <span class="block w-5 h-px bg-brand-cream"></span>
+            <span class="block w-5 h-px bg-brand-cream"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div id="mobile-nav" class="mobile-nav lg:hidden">
+      <div class="px-5 py-10 flex flex-col gap-1 min-h-full">
+        <a href="#top" class="mobile-link block py-4 text-2xl wordmark border-b border-brand-cream/10">Home</a>
+        <a href="#boeken" class="mobile-link block py-4 text-2xl wordmark border-b border-brand-cream/10">Boeken</a>
+        <a href="#over" class="mobile-link block py-4 text-2xl wordmark border-b border-brand-cream/10">Over Ons</a>
+        <a href="#diensten" class="mobile-link block py-4 text-2xl wordmark border-b border-brand-cream/10">Diensten</a>
+        <a href="#werk" class="mobile-link block py-4 text-2xl wordmark border-b border-brand-cream/10">Galerij</a>
+        <a href="#contact" class="mobile-link block py-4 text-2xl wordmark border-b border-brand-cream/10">Contact</a>
+
+        <div class="mt-auto pt-10 space-y-4">
+          <a href="tel:+31642265456" class="flex items-center gap-2 text-brand-gold mono-num">+31 6 42265456</a>
+          <a href="#boeken" class="mobile-link btn btn-gold w-full">Maak Een Afspraak</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section id="top" class="hero on-dark">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="hero-content max-w-[1280px] mx-auto px-5 md:px-10 min-h-screen flex flex-col justify-center items-center text-center pt-24 pb-16">
+      <div class="eyebrow mb-6">— Premium Barbershop —</div>
+
+      <h1 class="display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-brand-cream max-w-4xl mb-8">
+        Waar Stijl Vakmanschap Ontmoet
+      </h1>
+
+      <p class="text-base md:text-lg text-brand-cream/75 max-w-2xl mb-10 leading-relaxed">
+        Ervaar de perfecte knipbeurt bij Klint Barbers. Traditioneel vakmanschap met een moderne touch, voor de man die het beste verdient.
+      </p>
+
+      <a href="#boeken" class="btn btn-gold">
+        Maak Een Afspraak
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <!-- Scroll hint -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-brand-cream/40 flex flex-col items-center gap-2">
+        <span class="eyebrow !text-brand-cream/50">Scroll</span>
+        <span class="block w-px h-12 bg-brand-cream/30"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS BAND ============ -->
+  <section class="stats-band py-10 md:py-14">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8">
+        <div class="flex flex-col items-center text-center gap-2 relative">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4a73e" stroke-width="1.6" aria-hidden="true">
+            <circle cx="6" cy="6" r="3"/>
+            <circle cx="6" cy="18" r="3"/>
+            <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+            <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+            <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+          </svg>
+          <div class="display text-3xl md:text-4xl text-brand-cream mt-1">8+</div>
+          <div class="eyebrow !text-brand-cream/70 !text-[10px]">Jaar Ervaring</div>
+        </div>
+        <div class="flex flex-col items-center text-center gap-2 md:border-l md:border-brand-cream/15">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4a73e" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="9 12 11 14 16 9"/>
+          </svg>
+          <div class="display text-3xl md:text-4xl text-brand-cream mt-1">100%</div>
+          <div class="eyebrow !text-brand-cream/70 !text-[10px]">Tevreden Klanten</div>
+        </div>
+
+        <div class="flex flex-col items-center text-center gap-2 md:border-l md:border-brand-cream/15">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4a73e" stroke-width="1.6" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <div class="display text-3xl md:text-4xl text-brand-cream mt-1">10.000+</div>
+          <div class="eyebrow !text-brand-cream/70 !text-[10px]">Knipbeurten</div>
+        </div>
+
+        <div class="flex flex-col items-center text-center gap-2 md:border-l md:border-brand-cream/15">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#d4a73e" stroke="#d4a73e" stroke-width="1" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <div class="display text-3xl md:text-4xl text-brand-cream mt-1">5<span class="text-brand-gold">★</span></div>
+          <div class="eyebrow !text-brand-cream/70 !text-[10px]">Google Reviews</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVER ONS ============ -->
+  <section id="over" class="py-20 md:py-28">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+        <div class="lg:col-span-6">
+          <div class="eyebrow mb-5">— Over Ons —</div>
+          <h2 class="display text-4xl md:text-5xl lg:text-6xl text-brand-text mb-8 max-w-md">
+            Meer Dan Een<br />Barbershop
+          </h2>
+          <div class="space-y-5 text-base md:text-lg text-brand-muted leading-relaxed max-w-xl mb-10">
+            <p>Bij Klint Barbers draait alles om vakmanschap, stijl en persoonlijke aandacht. Al meer dan 8 jaar zijn wij de vaste kapper voor mannen die de waarde hechten aan kwaliteit en uitstraling.</p>
+            <p>Onze barbershop is meer dan een plek om je haar te laten knippen — het is een ervaring. Stap binnen, ontspan, en verlaat onze stoel met vertrouwen.</p>
+          </div>
+          <a href="#diensten" class="btn btn-outline-dark">Lees Meer</a>
+        </div>
+
+        <div class="lg:col-span-6 lg:pl-8">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm relative" style="box-shadow: var(--shadow-floating);">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=1200&q=80&auto=format&fit=crop" alt="Barber aan het werk bij Klint Barbers" class="w-full h-full object-cover" width="1200" height="1500" loading="lazy" decoding="async" />
+            <!-- Gradient overlay + corner caption -->
+            <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(12,12,12,0.55), transparent 45%);"></div>
+            <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between text-brand-cream">
+              <div class="font-serif italic text-sm">Voorstraat 88</div>
+              <div class="mono-num text-[10px] tracking-widest text-brand-cream/80">EST. 2019</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIENSTEN (DARK) ============ -->
+  <section id="diensten" class="py-20 md:py-28 bg-brand-dark on-dark">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+
+      <div class="text-center mb-14 md:mb-16">
+        <div class="eyebrow mb-4">— Onze Diensten —</div>
+        <h2 class="display text-4xl md:text-5xl lg:text-6xl text-brand-cream">Wat Wij Bieden</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+
+        <!-- Knippen -->
+        <div class="service-card">
+          <div class="flex items-start gap-5">
+            <div class="shrink-0 mt-1">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d4a73e" stroke-width="1.6" aria-hidden="true">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-brand-cream">Knippen</h3>
+              <div class="mono-num text-brand-gold text-base mb-3">€25</div>
+              <p class="text-sm text-brand-cream/65 leading-relaxed">Klassieke of moderne coupe, op maat gemaakt voor jouw stijl.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baard Trimmen -->
+        <div class="service-card">
+          <div class="flex items-start gap-5">
+            <div class="shrink-0 mt-1">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d4a73e" stroke-width="1.6" aria-hidden="true">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-brand-cream">Baard Trimmen</h3>
+              <div class="mono-num text-brand-gold text-base mb-3">€10</div>
+              <p class="text-sm text-brand-cream/65 leading-relaxed">Perfecte baard shaping met warme handdoek behandeling.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fade -->
+        <div class="service-card">
+          <div class="flex items-start gap-5">
+            <div class="shrink-0 mt-1">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d4a73e" stroke-width="1.6" aria-hidden="true">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-brand-cream">Fade</h3>
+              <div class="mono-num text-brand-gold text-base mb-3">€20</div>
+              <p class="text-sm text-brand-cream/65 leading-relaxed">Scherpe skin fade of taper fade, tot in de puntjes afgewerkt.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compleet Pakket -->
+        <div class="service-card">
+          <div class="flex items-start gap-5">
+            <div class="shrink-0 mt-1">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d4a73e" stroke-width="1.6" aria-hidden="true">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-brand-cream">Compleet Pakket</h3>
+              <div class="mono-num text-brand-gold text-base mb-3">€30</div>
+              <p class="text-sm text-brand-cream/65 leading-relaxed">Knippen + baard trimmen + styling. De volledige ervaring.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#boeken" class="btn btn-gold">Boek Nu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOEKEN ============ -->
+  <section id="boeken" class="py-20 md:py-28 bg-brand-darker on-dark">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+
+      <div class="text-center mb-12">
+        <div class="eyebrow mb-4">— Boeken —</div>
+        <h2 class="display text-4xl md:text-5xl lg:text-6xl text-brand-cream mb-4">Plan Je Afspraak</h2>
+        <p id="boeken-intro" class="text-brand-cream/65 max-w-xl mx-auto">Kies een dienst, dag en tijd. Bevestiging via WhatsApp.</p>
+      </div>
+
+      <div class="booking-widget max-w-4xl mx-auto">
+
+        <!-- Step 1: Service -->
+        <div class="bw-step">
+          <div class="bw-step-label"><span class="bw-step-num">01</span> Kies een dienst</div>
+          <div class="bw-service-grid" id="bw-services"></div>
+        </div>
+
+        <!-- Step 2: Date -->
+        <div class="bw-step bw-step--disabled" id="bw-date-step">
+          <div class="bw-step-label"><span class="bw-step-num">02</span> Kies een dag</div>
+          <div class="bw-date-strip" id="bw-dates"></div>
+        </div>
+
+        <!-- Step 3: Time -->
+        <div class="bw-step bw-step--disabled" id="bw-time-step">
+          <div class="bw-step-label"><span class="bw-step-num">03</span> Kies een tijd</div>
+          <div class="bw-time-grid" id="bw-times"></div>
+          <div class="bw-empty-msg" id="bw-empty"></div>
+        </div>
+
+        <!-- Submit -->
+        <div class="bw-submit-row">
+          <div class="bw-summary" id="bw-summary" aria-live="polite">Maak je keuze hierboven</div>
+          <a id="bw-submit" class="btn btn-gold bw-submit-btn" href="#" target="_blank" rel="noopener" aria-disabled="true">
+            <svg id="bw-submit-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/>
+            </svg>
+            <span id="bw-submit-label">Bevestig via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY (Instagram embeds) ============ -->
+  <section id="werk" class="py-20 md:py-28">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+
+      <div class="text-center mb-10">
+        <div class="eyebrow mb-4">— Recent Werk —</div>
+        <h2 class="display text-4xl md:text-5xl lg:text-6xl text-brand-text mb-4">Vers Van Instagram</h2>
+        <a id="ig-handle-link" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm text-brand-muted hover:text-brand-text transition-colors" style="transition: color 200ms var(--ease-out-soft);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <span id="ig-handle-text" class="font-medium">@klintbarbers</span>
+          <span class="text-brand-muted">→</span>
+        </a>
+      </div>
+
+      <!-- Template hint — hidden automatically once INSTAGRAM_CONFIG.configured is true -->
+      <div id="ig-template-banner" class="max-w-3xl mx-auto mb-8 px-4 py-3 border border-brand-coffee/30 bg-brand-coffee/[0.06] flex items-start gap-3 text-sm text-brand-muted">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3d2d1f" stroke-width="2" aria-hidden="true" class="shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span>
+          <strong class="text-brand-text">Template &mdash;</strong> de tegels hieronder tonen 6 Instagram-embeds.
+          Open <code class="mono-num text-brand-coffee">index.html</code>, vul <code class="mono-num text-brand-coffee">INSTAGRAM_CONFIG.posts</code> met de shortcodes uit de URL van elke post
+          (bijv. <code class="mono-num text-brand-coffee">instagram.com/p/<u>CzABoLnoTtX</u>/</code> &rarr; <code class="mono-num text-brand-coffee">CzABoLnoTtX</code>).
+        </span>
+      </div>
+
+      <!-- Instagram embed grid (populated by JS from INSTAGRAM_CONFIG.posts) -->
+      <div id="ig-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ============ WAAROM WIJ ============ -->
+  <section id="waarom" class="py-20 md:py-28">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+
+      <div class="text-center mb-14 md:mb-20">
+        <div class="eyebrow mb-4">— Waarom Wij —</div>
+        <h2 class="display text-4xl md:text-5xl lg:text-6xl text-brand-text">Waarom Kiezen Voor Klint</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-12 md:gap-10 max-w-5xl mx-auto">
+
+        <div class="flex flex-col items-center text-center">
+          <div class="seal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M12 2l2.39 4.84L20 8l-4 3.9L17.18 18 12 15.27 6.82 18 8 11.9 4 8l5.61-1.16L12 2z"/>
+            </svg>
+          </div>
+          <h3 class="display text-2xl text-brand-text mb-3">Vakmanschap</h3>
+          <p class="text-brand-muted text-base leading-relaxed max-w-xs">Jarenlange ervaring en continue bijscholing in de nieuwste technieken.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center">
+          <div class="seal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3 class="display text-2xl text-brand-text mb-3">Persoonlijke Aanpak</h3>
+          <p class="text-brand-muted text-base leading-relaxed max-w-xs">Elk bezoek wordt afgestemd op jouw wensen en gezichtsvorm.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center">
+          <div class="seal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="display text-2xl text-brand-text mb-3">Premium Producten</h3>
+          <p class="text-brand-muted text-base leading-relaxed max-w-xs">Wij werken uitsluitend met hoogwaardige producten voor het beste resultaat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HET PROCES ============ -->
+  <section id="proces" class="py-20 md:py-28" style="background: var(--bg-warm);">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+
+      <div class="text-center mb-14 md:mb-20">
+        <div class="eyebrow mb-4 !text-brand-text/70">— Het Proces —</div>
+        <h2 class="display text-4xl md:text-5xl lg:text-6xl text-brand-text">Jouw Ervaring In 4 Stappen</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-5 md:gap-7 max-w-3xl mx-auto">
+
+        <div class="proces-card flex items-start gap-5">
+          <div class="display text-5xl md:text-6xl text-brand-text/30 leading-none shrink-0">01</div>
+          <div>
+            <h3 class="text-lg font-semibold text-brand-text mb-2">Afspraak</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">Boek online of bel ons</p>
+          </div>
+        </div>
+
+        <div class="proces-card flex items-start gap-5">
+          <div class="display text-5xl md:text-6xl text-brand-text/30 leading-none shrink-0">02</div>
+          <div>
+            <h3 class="text-lg font-semibold text-brand-text mb-2">Ontvangst</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">Welkom met koffie of thee</p>
+          </div>
+        </div>
+
+        <div class="proces-card flex items-start gap-5">
+          <div class="display text-5xl md:text-6xl text-brand-text/30 leading-none shrink-0">03</div>
+          <div>
+            <h3 class="text-lg font-semibold text-brand-text mb-2">Behandeling</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">Vakmanschap op z'n best</p>
+          </div>
+        </div>
+
+        <div class="proces-card flex items-start gap-5">
+          <div class="display text-5xl md:text-6xl text-brand-text/30 leading-none shrink-0">04</div>
+          <div>
+            <h3 class="text-lg font-semibold text-brand-text mb-2">Stijl</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">Verlaat met vertrouwen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section id="reviews" class="py-20 md:py-28 bg-brand-dark on-dark">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+
+      <div class="text-center mb-14">
+        <div class="eyebrow mb-4">— Reviews —</div>
+        <h2 class="display text-4xl md:text-5xl lg:text-6xl text-brand-cream mb-5">Wat Onze Klanten Zeggen</h2>
+        <div class="flex items-center justify-center gap-3">
+          <div class="stars">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+          </div>
+          <span class="text-sm text-brand-cream/70">5.0 gemiddelde op Google Reviews</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto">
+
+        <article class="review-card">
+          <div class="stars mb-4">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+          </div>
+          <p class="text-brand-cream/85 leading-relaxed mb-5 text-sm">"Beste barbershop van de stad. Altijd een perfecte fade en top sfeer!"</p>
+          <div class="text-brand-gold font-semibold text-sm">Ahmed B.</div>
+        </article>
+
+        <article class="review-card">
+          <div class="stars mb-4">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+          </div>
+          <p class="text-brand-cream/85 leading-relaxed mb-5 text-sm">"Al jaren vaste klant. Klint en zijn team leveren altijd kwaliteit."</p>
+          <div class="text-brand-gold font-semibold text-sm">Jeroen V.</div>
+        </article>
+
+        <article class="review-card">
+          <div class="stars mb-4">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.95 6.95L22 9.97l-5.5 4.78L18.18 22 12 18.27 5.82 22 7.5 14.75 2 9.97l7.05-1.02z"/></svg>
+          </div>
+          <p class="text-brand-cream/85 leading-relaxed mb-5 text-sm">"Professioneel, stijlvol en een relaxte ervaring. Aanrader!"</p>
+          <div class="text-brand-gold font-semibold text-sm">Karim M.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="contact" class="bg-brand-darker on-dark pt-16 pb-8">
+    <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+
+      <div class="grid md:grid-cols-12 gap-10 pb-12 border-b border-brand-cream/10">
+
+        <div class="md:col-span-4">
+          <a href="#top" class="wordmark text-2xl text-brand-cream block mb-4">
+            KLINT<span class="text-brand-gold">BARBER</span>
+          </a>
+          <p class="text-brand-cream/65 text-sm leading-relaxed max-w-xs">
+            De premium barbershop voor de moderne man. Vakmanschap, stijl en persoonlijke aandacht.
+          </p>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="eyebrow mb-4">Snelle Links</div>
+          <ul class="space-y-2.5 text-sm text-brand-cream/65">
+            <li><a href="#top" class="hover:text-brand-gold transition-colors" style="transition: color 200ms var(--ease-out-soft);">Home</a></li>
+            <li><a href="#boeken" class="hover:text-brand-gold" style="transition: color 200ms var(--ease-out-soft);">Boeken</a></li>
+            <li><a href="#over" class="hover:text-brand-gold" style="transition: color 200ms var(--ease-out-soft);">Over Ons</a></li>
+            <li><a href="#contact" class="hover:text-brand-gold" style="transition: color 200ms var(--ease-out-soft);">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <div class="eyebrow mb-4">Openingstijden</div>
+          <ul class="space-y-2 text-sm text-brand-cream/65 mono-num">
+            <li class="flex justify-between gap-3"><span>Maandag — Vrijdag</span><span>11:00 — 20:00</span></li>
+            <li class="flex justify-between gap-3"><span>Zaterdag</span><span>10:00 — 21:00</span></li>
+            <li class="flex justify-between gap-3"><span>Zondag</span><span>13:00 — 20:00</span></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <div class="eyebrow mb-4">Contact</div>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="tel:+31642265456" class="text-brand-gold mono-num hover:text-brand-goldBright" style="transition: color 200ms var(--ease-out-soft);">+31 6 42265456</a></li>
+            <li><a href="mailto:info@klintbarbers.nl" class="text-brand-cream/65 hover:text-brand-gold" style="transition: color 200ms var(--ease-out-soft);">info@klintbarbers.nl</a></li>
+            <li class="text-brand-cream/65">Hofnarlaan 2, Utrecht</li>
+          </ul>
+          <div class="flex items-center gap-3 mt-5">
+            <a id="footer-ig" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full border border-brand-cream/20 flex items-center justify-center text-brand-cream/65 hover:text-brand-gold hover:border-brand-gold" style="transition: color 200ms var(--ease-out-soft), border-color 200ms var(--ease-out-soft);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full border border-brand-cream/20 flex items-center justify-center text-brand-cream/65 hover:text-brand-gold hover:border-brand-gold" style="transition: color 200ms var(--ease-out-soft), border-color 200ms var(--ease-out-soft);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 text-center text-xs text-brand-cream/40">
+        © <span class="mono-num" id="footer-year">2026</span> Klint Barbers. Alle rechten voorbehouden.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/31642265456" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/>
+    </svg>
+  </a>
+
+  <!-- ============ JS ============ -->
+  <script>
+    'use strict';
+
+    // 1. Header on scroll (rAF-throttled)
+    const header = document.getElementById('header');
+    let scrollTicking = false;
+    const onScroll = () => {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        header.classList.toggle('scrolled', window.scrollY > 8);
+        scrollTicking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // 2. Mobile menu — Escape closes it, auto-closes on desktop resize
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    function setMenu(open) {
+      mobileNav.classList.toggle('open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    menuToggle.addEventListener('click', () => setMenu(!mobileNav.classList.contains('open')));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        setMenu(false);
+        menuToggle.focus();
+      }
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+    const desktopMq = window.matchMedia('(min-width: 1024px)');
+    const onDesktopChange = (e) => {
+      if (e.matches && mobileNav.classList.contains('open')) setMenu(false);
+    };
+    if (desktopMq.addEventListener) desktopMq.addEventListener('change', onDesktopChange);
+    else if (desktopMq.addListener) desktopMq.addListener(onDesktopChange);
+
+    // 3. Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el => io.observe(el));
+    }
+
+    // 4. Footer year stays current
+    const footerYear = document.getElementById('footer-year');
+    if (footerYear) footerYear.textContent = String(new Date().getFullYear());
+
+    // ════════════════════════════════════════════════════════
+    //  INSTAGRAM CONFIG — paste your barber's post shortcodes
+    // ════════════════════════════════════════════════════════
+    //  Steps to swap:
+    //   1. Go to the barber's Instagram profile (any public account).
+    //   2. Click a post you want in the gallery.
+    //   3. Look at the URL: instagram.com/p/[CODE]/ — copy the [CODE] part.
+    //   4. Paste each code into INSTAGRAM_CONFIG.posts below.
+    //   5. Update INSTAGRAM_CONFIG.handle to the @username and set
+    //      `configured: true` — that hides the template banner.
+    const INSTAGRAM_CONFIG = {
+      handle: 'klintbarbers',        // <-- replace with real handle
+      configured: false,             // <-- set true after filling in real posts
+      posts: [
+        'CzABoLnoTtX',               // <-- replace each with a real shortcode
+        'Cz5d_2hsdmH',
+        'DBKZb8YtFTH',
+        'C5_qV6BImoG',
+        'C7lJP5aoBVT',
+        'C9aBcDeFgHi',
+      ],
+    };
+
+    // Render Instagram grid. Iframes are only created when a tile nears the
+    // viewport, so the six embeds never block or compete with page load.
+    (function renderInstagramGrid() {
+      const grid = document.getElementById('ig-grid');
+      const handleText = document.getElementById('ig-handle-text');
+      const handleLink = document.getElementById('ig-handle-link');
+      const footerIg = document.getElementById('footer-ig');
+      if (!grid) return;
+      const profileUrl = 'https://www.instagram.com/' + encodeURIComponent(INSTAGRAM_CONFIG.handle) + '/';
+      if (handleText) handleText.textContent = '@' + INSTAGRAM_CONFIG.handle;
+      if (handleLink) handleLink.href = profileUrl;
+      if (footerIg) footerIg.href = profileUrl;
+      if (INSTAGRAM_CONFIG.configured) {
+        const banner = document.getElementById('ig-template-banner');
+        if (banner) banner.remove();
+      }
+
+      const cards = INSTAGRAM_CONFIG.posts.map(code => {
+        const card = document.createElement('div');
+        card.className = 'ig-card';
+        card.dataset.code = code;
+        card.innerHTML = `
+          <div class="ig-skel">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </div>
+        `;
+        grid.appendChild(card);
+        return card;
+      });
+
+      const loadCard = (card) => {
+        if (card.dataset.loaded) return;
+        card.dataset.loaded = '1';
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.instagram.com/p/' + encodeURIComponent(card.dataset.code) + '/embed/captioned/';
+        iframe.loading = 'lazy';
+        iframe.allowFullscreen = true;
+        iframe.setAttribute('scrolling', 'no');
+        iframe.title = 'Instagram post van @' + INSTAGRAM_CONFIG.handle;
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        card.appendChild(iframe);
+      };
+
+      if ('IntersectionObserver' in window) {
+        const igIo = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              loadCard(entry.target);
+              igIo.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '400px 0px' });
+        cards.forEach(card => igIo.observe(card));
+      } else {
+        cards.forEach(loadCard);
+      }
+    })();
+
+    // ════════════════════════════════════════════════════════
+    //  ONLINE BOOKING — Cal.com  (https://cal.com)
+    // ════════════════════════════════════════════════════════
+    //  The widget is fully wired for Cal.com. Until an account is connected
+    //  it falls back to the WhatsApp flow, which works out of the box.
+    //
+    //  Go live with real online booking (the free plan is enough):
+    //   1. Create an account on https://cal.com and pick a username
+    //      (e.g. "klintbarbers" → cal.com/klintbarbers).
+    //   2. Create one event type per service with these exact slugs:
+    //        knippen (30 min) · baard-trimmen (20 min) ·
+    //        fade (30 min) · compleet-pakket (60 min)
+    //      (Or use your own slugs and update `events` below.)
+    //   3. In Cal.com, set your availability to match the shop hours and
+    //      connect your (Google) calendar so double bookings are impossible.
+    //   4. Set `enabled: true` below. The button then opens the Cal.com
+    //      booking overlay pre-filled with the chosen service and day,
+    //      showing REAL availability. WhatsApp stays available via the
+    //      floating button. See README.md for the full walkthrough.
+    const CAL_CONFIG = {
+      enabled: false,                 // <-- flip to true once your Cal.com account is set up
+      username: 'klintbarbers',       // <-- your cal.com username
+      events: {                       // service id -> cal.com event slug
+        knippen: 'knippen',
+        baard: 'baard-trimmen',
+        fade: 'fade',
+        compleet: 'compleet-pakket',
+      },
+      theme: 'dark',
+      brandColor: '#d4a73e',
+    };
+
+    // Official Cal.com embed loader — fetched lazily, only when the booking
+    // section approaches the viewport and CAL_CONFIG.enabled is true.
+    let calLoaded = false;
+    function loadCalEmbed() {
+      if (calLoaded || !CAL_CONFIG.enabled) return;
+      calLoaded = true;
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      window.Cal('init', { origin: 'https://app.cal.com' });
+      window.Cal('ui', {
+        cssVarsPerTheme: {
+          dark: { 'cal-brand': CAL_CONFIG.brandColor },
+          light: { 'cal-brand': CAL_CONFIG.brandColor },
+        },
+        hideEventTypeDetails: false,
+      });
+    }
+
+    // ════════════════════════════════════════════════════════
+    //  BOOKING CONFIG — edit this block per barbershop
+    // ════════════════════════════════════════════════════════
+    //  hours: per weekday opening hours in 24h "HH:MM".
+    //         null = closed. JS weekday: 0=Sun, 1=Mon, ... 6=Sat.
+    //         KEEP IN SYNC with the "Openingstijden" in the footer and the
+    //         openingHoursSpecification in the JSON-LD block in <head>.
+    //  services: list of services with name, duration (min), price (€).
+    //  slotInterval: how often a slot starts (in minutes).
+    //  whatsapp: phone in international format, digits only (no +).
+    //  bookingHorizonDays: how many days ahead can be booked.
+    const BOOKING_CONFIG = {
+      hours: {
+        0: ['13:00', '20:00'],    // Zondag
+        1: ['11:00', '20:00'],    // Maandag
+        2: ['11:00', '20:00'],    // Dinsdag
+        3: ['11:00', '20:00'],    // Woensdag
+        4: ['11:00', '20:00'],    // Donderdag
+        5: ['11:00', '20:00'],    // Vrijdag
+        6: ['10:00', '21:00'],    // Zaterdag
+      },
+      services: [
+        { id: 'knippen',      label: 'Knippen',          duration: 30, price: 25 },
+        { id: 'baard',        label: 'Baard Trimmen',    duration: 20, price: 10 },
+        { id: 'fade',         label: 'Fade',             duration: 30, price: 20 },
+        { id: 'compleet',     label: 'Compleet Pakket',  duration: 60, price: 30 },
+      ],
+      slotInterval: 30,
+      whatsapp: '31642265456',
+      bookingHorizonDays: 21,
+      dayNamesNL: ['Zo','Ma','Di','Wo','Do','Vr','Za'],
+      monthNamesNL: ['JAN','FEB','MRT','APR','MEI','JUN','JUL','AUG','SEP','OKT','NOV','DEC'],
+      dayFullNL: ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'],
+    };
+
+    // Widget logic
+    (function bookingWidget() {
+      const state = { service: null, date: null, time: null };
+      const $services = document.getElementById('bw-services');
+      const $dates = document.getElementById('bw-dates');
+      const $times = document.getElementById('bw-times');
+      const $empty = document.getElementById('bw-empty');
+      const $summary = document.getElementById('bw-summary');
+      const $submit = document.getElementById('bw-submit');
+      const $dateStep = document.getElementById('bw-date-step');
+      const $timeStep = document.getElementById('bw-time-step');
+      if (!$services) return;
+
+      // Local-timezone date key (YYYY-MM-DD) — toISOString would shift the
+      // date around midnight because it converts to UTC.
+      const toKey = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
+      // Never follow the link while incomplete (aria-disabled anchors are
+      // still keyboard-activatable even with pointer-events: none).
+      $submit.addEventListener('click', (e) => {
+        if ($submit.getAttribute('aria-disabled') === 'true') e.preventDefault();
+      });
+
+      // With Cal.com enabled: adjust copy, swap WhatsApp icon for a calendar,
+      // and lazy-load the embed script as the section scrolls into reach.
+      if (CAL_CONFIG.enabled) {
+        const intro = document.getElementById('boeken-intro');
+        if (intro) intro.textContent = 'Kies een dienst, dag en tijd — bevestig direct online.';
+        const label = document.getElementById('bw-submit-label');
+        if (label) label.textContent = 'Bevestig Afspraak';
+        const icon = document.getElementById('bw-submit-icon');
+        if (icon) icon.outerHTML = '<svg id="bw-submit-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+        const boeken = document.getElementById('boeken');
+        if (boeken && 'IntersectionObserver' in window) {
+          const calIo = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                loadCalEmbed();
+                calIo.disconnect();
+              }
+            });
+          }, { rootMargin: '600px 0px' });
+          calIo.observe(boeken);
+        } else {
+          loadCalEmbed();
+        }
+      }
+
+      // Render services
+      BOOKING_CONFIG.services.forEach(svc => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'bw-service';
+        btn.dataset.id = svc.id;
+        btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = `
+          <span class="bw-service-name">${svc.label}</span>
+          <span class="bw-service-meta">${svc.duration}m · €${svc.price}</span>
+        `;
+        btn.addEventListener('click', () => selectService(svc));
+        $services.appendChild(btn);
+      });
+
+      function selectService(svc) {
+        state.service = svc;
+        state.date = null; state.time = null;
+        $services.querySelectorAll('.bw-service').forEach(el => {
+          const on = el.dataset.id === svc.id;
+          el.classList.toggle('is-selected', on);
+          el.setAttribute('aria-pressed', String(on));
+        });
+        $dateStep.classList.remove('bw-step--disabled');
+        renderDates();
+        $timeStep.classList.add('bw-step--disabled');
+        $times.innerHTML = '';
+        $empty.classList.remove('show');
+        updateSummary();
+      }
+
+      function renderDates() {
+        $dates.innerHTML = '';
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        let added = 0;
+        for (let i = 0; i < BOOKING_CONFIG.bookingHorizonDays && added < 14; i++) {
+          const d = new Date(today);
+          d.setDate(today.getDate() + i);
+          const hours = BOOKING_CONFIG.hours[d.getDay()];
+          if (!hours) continue;
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'bw-date';
+          btn.dataset.iso = toKey(d);
+          btn.setAttribute('aria-pressed', 'false');
+          btn.innerHTML = `
+            <div class="bw-date-day">${BOOKING_CONFIG.dayNamesNL[d.getDay()]}</div>
+            <div class="bw-date-num">${d.getDate()}</div>
+            <div class="bw-date-month">${BOOKING_CONFIG.monthNamesNL[d.getMonth()]}</div>
+          `;
+          btn.addEventListener('click', () => selectDate(d));
+          $dates.appendChild(btn);
+          added++;
+        }
+      }
+
+      function selectDate(d) {
+        state.date = d;
+        state.time = null;
+        $dates.querySelectorAll('.bw-date').forEach(el => {
+          const on = el.dataset.iso === toKey(d);
+          el.classList.toggle('is-selected', on);
+          el.setAttribute('aria-pressed', String(on));
+        });
+        $timeStep.classList.remove('bw-step--disabled');
+        renderTimes(d);
+        updateSummary();
+      }
+
+      function renderTimes(d) {
+        $times.innerHTML = '';
+        $empty.classList.remove('show');
+        const hours = BOOKING_CONFIG.hours[d.getDay()];
+        if (!hours) return;
+        const [openH, openM] = hours[0].split(':').map(Number);
+        const [closeH, closeM] = hours[1].split(':').map(Number);
+        const openMin = openH * 60 + openM;
+        // Last slot must finish before closing
+        const dur = state.service?.duration || 30;
+        const closeMin = closeH * 60 + closeM - dur;
+        const isToday = d.toDateString() === new Date().toDateString();
+        const now = new Date();
+        const nowMin = now.getHours() * 60 + now.getMinutes();
+        let slots = 0;
+        for (let m = openMin; m <= closeMin; m += BOOKING_CONFIG.slotInterval) {
+          if (isToday && m <= nowMin + 60) continue; // 1h lead time today
+          const h = Math.floor(m / 60);
+          const mm = m % 60;
+          const label = `${String(h).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'bw-time';
+          btn.dataset.time = label;
+          btn.setAttribute('aria-pressed', 'false');
+          btn.textContent = label;
+          btn.addEventListener('click', () => selectTime(label));
+          $times.appendChild(btn);
+          slots++;
+        }
+        if (slots === 0) {
+          $empty.classList.add('show');
+          $empty.textContent = 'Geen slots meer beschikbaar op deze dag — kies een andere.';
+        }
+      }
+
+      function selectTime(label) {
+        state.time = label;
+        $times.querySelectorAll('.bw-time').forEach(el => {
+          const on = el.dataset.time === label;
+          el.classList.toggle('is-selected', on);
+          el.setAttribute('aria-pressed', String(on));
+        });
+        updateSummary();
+      }
+
+      function updateSummary() {
+        const { service, date, time } = state;
+        if (!service) {
+          $summary.textContent = 'Maak je keuze hierboven';
+          $submit.setAttribute('aria-disabled', 'true');
+          $submit.href = '#';
+          return;
+        }
+        const parts = [`<strong>${service.label}</strong> (${service.duration}m · €${service.price})`];
+        if (date) {
+          const dayName = BOOKING_CONFIG.dayFullNL[date.getDay()];
+          parts.push(`${dayName} ${date.getDate()} ${BOOKING_CONFIG.monthNamesNL[date.getMonth()].toLowerCase()}`);
+        }
+        if (time) parts.push(`om ${time}`);
+        $summary.innerHTML = parts.join(' &middot; ');
+
+        if (service && date && time) {
+          $submit.removeAttribute('aria-disabled');
+          if (CAL_CONFIG.enabled) {
+            // Cal.com overlay (intercepts the click); href is the no-JS /
+            // script-blocked fallback to the same booking page.
+            const slug = CAL_CONFIG.events[service.id] || service.id;
+            const iso = toKey(date);
+            $submit.href = `https://cal.com/${CAL_CONFIG.username}/${slug}?date=${iso}&month=${iso.slice(0, 7)}`;
+            $submit.setAttribute('data-cal-link', `${CAL_CONFIG.username}/${slug}`);
+            $submit.setAttribute('data-cal-config', JSON.stringify({
+              theme: CAL_CONFIG.theme,
+              date: iso,
+              month: iso.slice(0, 7),
+            }));
+          } else {
+            $submit.href = buildWhatsAppLink();
+          }
+        } else {
+          $submit.setAttribute('aria-disabled', 'true');
+          $submit.href = '#';
+        }
+      }
+
+      function buildWhatsAppLink() {
+        const { service, date, time } = state;
+        const dayName = BOOKING_CONFIG.dayFullNL[date.getDay()];
+        const dateStr = `${dayName} ${date.getDate()} ${BOOKING_CONFIG.monthNamesNL[date.getMonth()].toLowerCase()}`;
+        const msg = [
+          'Hoi Klint Barbers!',
+          '',
+          'Ik wil graag een afspraak maken:',
+          `• Dienst: ${service.label} (${service.duration} min, €${service.price})`,
+          `• Datum: ${dateStr}`,
+          `• Tijd: ${time}`,
+          '',
+          'Mijn naam: ',
+        ].join('\n');
+        return `https://wa.me/${BOOKING_CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+      }
+    })();
+  </script>
+</body>
+</html>
