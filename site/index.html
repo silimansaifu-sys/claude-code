@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Quirkbound — an absurd, colorful and lighthearted turn-based fantasy JRPG by Blue Lemonade Games. Fight bizarre enemies, collect stickers, cook falafel, save the world.">
+<title>Quirkbound</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titan+One&family=Baloo+2:wght@400;600;700;800&display=swap">
+<style>
+  :root{
+    --blue:#2e7cf6;
+    --blue-deep:#1c5fd6;
+    --ink:#22245c;
+    --lemon:#ffd644;
+    --lemon-soft:#ffe98a;
+    --pink:#ff5fa2;
+    --mint:#3ecf8e;
+    --cream:#fff6e0;
+    --paper:#fffdf5;
+    --basement:#171a2e;
+    --basement-2:#232748;
+    --display:'Titan One', 'Baloo 2', 'Comic Sans MS', cursive;
+    --body:'Baloo 2', 'Trebuchet MS', 'Segoe UI', sans-serif;
+    --line:3px solid var(--ink);
+    --shadow:6px 6px 0 var(--ink);
+    --shadow-sm:4px 4px 0 var(--ink);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    font-size:1.06rem;
+    line-height:1.6;
+    color:var(--ink);
+    background:var(--cream);
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--lemon);color:var(--ink)}
+  a{color:inherit}
+  img,svg{max-width:100%;display:block}
+  :focus-visible{outline:4px dashed var(--pink);outline-offset:3px;border-radius:6px}
+
+  h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;text-wrap:balance}
+  .eyebrow{
+    display:inline-block;font-weight:800;text-transform:uppercase;
+    letter-spacing:.14em;font-size:.8rem;padding:.3rem .9rem;
+    border:var(--line);border-radius:999px;background:var(--paper);
+    transform:rotate(-2deg);margin-bottom:1.1rem;
+  }
+  .wrap{max-width:1080px;margin-inline:auto;padding-inline:24px}
+  section{position:relative}
+
+  /* ── buttons ─────────────────────────── */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:var(--body);font-weight:800;font-size:1.05rem;
+    text-decoration:none;color:var(--ink);
+    background:var(--lemon);border:var(--line);border-radius:16px;
+    padding:.85rem 1.6rem;box-shadow:var(--shadow-sm);
+    transition:transform .12s ease, box-shadow .12s ease;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translate(-2px,-2px) rotate(-1deg);box-shadow:6px 6px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  .btn--pink{background:var(--pink);color:#fff}
+  .btn--ghost{background:var(--paper)}
+
+  /* ── sticker chrome ──────────────────── */
+  .sticker{
+    background:var(--paper);border:var(--line);border-radius:22px;
+    box-shadow:var(--shadow);padding:1.6rem;
+    position:relative;
+  }
+  .sticker::before{ /* peel notch */
+    content:"";position:absolute;top:-12px;left:26px;width:64px;height:22px;
+    background:var(--lemon-soft);border:var(--line);border-radius:6px;
+    transform:rotate(-4deg);
+  }
+
+  /* ── hidden sticker hunt ─────────────── */
+  .find{
+    display:inline-grid;place-items:center;
+    width:52px;height:52px;border-radius:50%;
+    background:var(--paper);border:3px dashed var(--ink);
+    font-size:1.5rem;cursor:pointer;user-select:none;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .find:hover{transform:scale(1.15) rotate(8deg)}
+  .find.found{background:var(--mint);border-style:solid;transform:rotate(-8deg)}
+  #albumChip{
+    position:fixed;right:18px;bottom:18px;z-index:60;
+    background:var(--ink);color:var(--cream);
+    font-weight:800;font-size:.9rem;letter-spacing:.05em;
+    border:3px solid var(--cream);border-radius:999px;
+    padding:.55rem 1.1rem;box-shadow:0 6px 18px rgba(23,26,46,.35);
+  }
+  #albumToast{
+    position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(20px);
+    z-index:61;opacity:0;pointer-events:none;
+    background:var(--pink);color:#fff;font-weight:800;
+    border:var(--line);border-radius:16px;padding:.8rem 1.4rem;
+    box-shadow:var(--shadow-sm);transition:opacity .3s ease, transform .3s ease;
+  }
+  #albumToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* ── hero ────────────────────────────── */
+  .hero{
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255,255,255,.22) 0 140px, transparent 141px),
+      radial-gradient(circle at 88% 70%, rgba(255,255,255,.16) 0 180px, transparent 181px),
+      var(--blue);
+    color:#fff;
+    padding:5.5rem 0 7rem;
+    text-align:center;
+  }
+  .hero .eyebrow{color:var(--ink);transform:rotate(2deg)}
+  .hero h1{
+    font-size:clamp(3.4rem, 10vw, 7.2rem);
+    letter-spacing:.01em;
+    color:var(--lemon);
+    text-shadow:
+      4px 4px 0 var(--ink),
+      8px 8px 0 rgba(23,26,46,.35);
+    transform:rotate(-2deg);
+    margin:.4rem 0 1.2rem;
+  }
+  .hero p.tag{
+    font-size:clamp(1.15rem, 2.6vw, 1.5rem);font-weight:700;
+    max-width:34ch;margin:0 auto 2.2rem;text-wrap:balance;
+  }
+  .hero .cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .hero .meta{
+    margin-top:1.6rem;font-weight:700;font-size:.95rem;opacity:.95;
+    display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;
+  }
+  .float{position:absolute;font-size:2.6rem;filter:drop-shadow(3px 3px 0 rgba(23,26,46,.4))}
+  .float--1{top:14%;left:8%;transform:rotate(-14deg)}
+  .float--2{top:24%;right:10%;transform:rotate(12deg)}
+  .float--3{bottom:20%;left:14%;transform:rotate(8deg)}
+  .float--4{bottom:26%;right:16%;transform:rotate(-10deg)}
+  @media (max-width:720px){.float{display:none}}
+
+  /* wavy divider */
+  .wave{display:block;width:100%;height:56px;margin-top:-1px}
+
+  /* ── verb marquee ────────────────────── */
+  .marquee{
+    background:var(--ink);color:var(--lemon);
+    overflow:hidden;white-space:nowrap;
+    border-top:var(--line);border-bottom:var(--line);
+    padding:.7rem 0;
+  }
+  .marquee__track{
+    display:inline-block;
+    font-family:var(--display);font-size:1.5rem;letter-spacing:.06em;
+    animation:scroll 22s linear infinite;
+  }
+  .marquee__track span{margin-inline:1.2rem}
+  .marquee__track .star{color:var(--pink)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ── story ───────────────────────────── */
+  .story{padding:5rem 0 4.5rem;text-align:center}
+  .story h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1.2rem}
+  .story .lede{max-width:62ch;margin:0 auto;font-size:1.15rem}
+  .story .lede + .lede{margin-top:1rem}
+  .story b{color:var(--blue-deep)}
+  .staff{
+    margin:2.6rem auto 0;max-width:560px;transform:rotate(1.5deg);
+    background:var(--lemon-soft);
+  }
+  .staff p{font-weight:700}
+
+  /* ── trio ────────────────────────────── */
+  .trio{background:var(--paper);border-top:var(--line);border-bottom:var(--line);padding:5rem 0}
+  .trio h2{font-size:clamp(2rem,5vw,3rem);text-align:center;margin-bottom:.6rem}
+  .trio .sub{text-align:center;max-width:52ch;margin:0 auto 3rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem}
+  .card{
+    border:var(--line);border-radius:22px;box-shadow:var(--shadow);
+    padding:1.8rem 1.5rem;text-align:center;background:var(--paper);
+    transition:transform .15s ease;
+  }
+  .card:hover{transform:rotate(0deg) translateY(-6px) !important}
+  .card:nth-child(1){transform:rotate(-2deg);background:#eaf2ff}
+  .card:nth-child(2){transform:rotate(1.5deg);background:#fff0f7}
+  .card:nth-child(3){transform:rotate(-1deg);background:#eafaf1}
+  .card .badge{
+    width:96px;height:96px;margin:0 auto 1.1rem;border-radius:50%;
+    border:var(--line);display:grid;place-items:center;font-size:2.6rem;
+    box-shadow:var(--shadow-sm);
+  }
+  .card:nth-child(1) .badge{background:var(--blue)}
+  .card:nth-child(2) .badge{background:var(--pink)}
+  .card:nth-child(3) .badge{background:var(--mint)}
+  .card h3{font-size:1.7rem;margin-bottom:.5rem}
+  .card .role{
+    display:inline-block;font-size:.78rem;font-weight:800;text-transform:uppercase;
+    letter-spacing:.12em;background:var(--lemon);border:2px solid var(--ink);
+    border-radius:999px;padding:.15rem .7rem;margin-bottom:.8rem;
+  }
+
+  /* ── battle ──────────────────────────── */
+  .battle{padding:5rem 0}
+  .battle h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:.6rem}
+  .battle .sub{max-width:58ch;margin-bottom:2.6rem}
+  .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.6rem}
+  .feat{
+    background:var(--paper);border:var(--line);border-radius:18px;
+    box-shadow:var(--shadow-sm);padding:1.4rem 1.4rem 1.5rem;
+  }
+  .feat .ico{font-size:2rem;margin-bottom:.6rem}
+  .feat h3{font-size:1.25rem;margin-bottom:.4rem}
+  .feat p{font-size:.98rem}
+  .parry{
+    margin-top:2.4rem;background:var(--lemon-soft);transform:rotate(-1deg);
+  }
+  .parry p{font-weight:700;max-width:60ch}
+
+  /* ── worlds ──────────────────────────── */
+  .worlds{padding:0 0 5.5rem}
+  .worlds h2{font-size:clamp(2rem,5vw,3rem);text-align:center;margin-bottom:2.6rem}
+  .world-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+  .world{
+    border:var(--line);border-radius:24px;box-shadow:var(--shadow);
+    padding:2.2rem 1.9rem;min-height:240px;position:relative;overflow:hidden;
+  }
+  .world h3{font-size:1.9rem;margin-bottom:.7rem}
+  .world--basement{
+    background:
+      radial-gradient(circle at 80% 20%, rgba(255,214,68,.12) 0 90px, transparent 91px),
+      var(--basement);
+    color:var(--cream);
+  }
+  .world--basement .deco{position:absolute;right:-10px;bottom:-14px;font-size:5.4rem;opacity:.5;transform:rotate(-8deg)}
+  .world--garden{
+    background:
+      radial-gradient(circle at 15% 85%, rgba(255,255,255,.35) 0 80px, transparent 81px),
+      var(--mint);
+  }
+  .world--garden .deco{position:absolute;right:-6px;bottom:-12px;font-size:5.4rem;opacity:.55;transform:rotate(10deg)}
+  .world p{max-width:46ch}
+
+  /* ── falafel strip ───────────────────── */
+  .falafel{
+    background:var(--lemon);border-top:var(--line);border-bottom:var(--line);
+    padding:3rem 0;text-align:center;
+  }
+  .falafel h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:.7rem}
+  .falafel p{max-width:56ch;margin:0 auto;font-weight:600}
+  .falafel .row{font-size:2.2rem;margin-top:1.2rem;letter-spacing:.4rem}
+
+  /* ── cta / footer ────────────────────── */
+  .outro{
+    background:var(--blue);color:#fff;text-align:center;
+    padding:5rem 0 4rem;
+  }
+  .outro h2{
+    font-size:clamp(2.4rem,6vw,4rem);color:var(--lemon);
+    text-shadow:3px 3px 0 var(--ink);transform:rotate(-1.5deg);
+    margin-bottom:1.4rem;
+  }
+  .outro .cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.8rem}
+  .outro .fine{font-weight:600;opacity:.95}
+  footer{
+    background:var(--ink);color:var(--cream);
+    padding:2.2rem 0;text-align:center;font-size:.95rem;
+  }
+  footer a{color:var(--lemon);font-weight:700;text-decoration:none}
+  footer a:hover{text-decoration:underline wavy}
+  footer .links{display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .marquee__track{animation:none}
+    .btn,.card,.find{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div id="albumChip" role="status" aria-live="polite">⭐ Stickers: <span id="albumCount">0</span>/5</div>
+<div id="albumToast">🎉 Album complete! You're officially Quirkbound.</div>
+
+<header class="hero">
+  <span class="float float--1" aria-hidden="true">⭐</span>
+  <span class="float float--2" aria-hidden="true">🧆</span>
+  <span class="float float--3" aria-hidden="true">⚔️</span>
+  <span class="float float--4" aria-hidden="true">🍋</span>
+  <div class="wrap">
+    <span class="eyebrow">A Blue Lemonade Games joint</span>
+    <h1>QUIRKBOUND</h1>
+    <p class="tag">An absurd, colorful &amp; lighthearted turn-based fantasy JRPG.</p>
+    <div class="cta">
+      <a class="btn" href="https://store.steampowered.com/app/2711300/Quirkbound/">🎮 Get it on Steam — $7.99</a>
+      <a class="btn btn--pink" href="https://store.steampowered.com/app/2711300/Quirkbound/">▶ Watch the trailer</a>
+    </div>
+    <div class="meta">
+      <span>🖥️ Out now on PC</span>
+      <span>📱 Coming to mobile — <a href="https://www.taptap.io/app/33672976" style="color:var(--lemon)">pre-register</a></span>
+      <span>🗓️ Released Nov 8, 2024</span>
+    </div>
+  </div>
+</header>
+<svg class="wave" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 C150,56 350,56 600,28 C850,0 1050,0 1200,28 L1200,0 Z" fill="#2e7cf6"></path></svg>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>SLASH</span><span class="star">✦</span><span>CAST</span><span class="star">✦</span><span>SHIELD</span><span class="star">✦</span><span>INSPECT</span><span class="star">✦</span><span>STICK</span><span class="star">✦</span>
+    <span>SLASH</span><span class="star">✦</span><span>CAST</span><span class="star">✦</span><span>SHIELD</span><span class="star">✦</span><span>INSPECT</span><span class="star">✦</span><span>STICK</span><span class="star">✦</span>
+  </div>
+</div>
+
+<section class="story">
+  <div class="wrap">
+    <span class="eyebrow">The quest</span>
+    <h2>Save the world. Collect stickers.<br>Cook falafel.</h2>
+    <p class="lede">The heinous <b>Varakh</b> has his claws on the <b>Staff of Ultimate Power</b>, and the end of the world is penciled into everyone's calendar. Someone has to fix this — and that someone is three kids with a sword, a spellbook, and a very good recipe.</p>
+    <p class="lede">Journey across a land that never takes itself seriously, befriend the bizarre, and stick it to evil. Literally. With stickers.</p>
+    <div class="sticker staff">
+      <p>🏆 Legend says whoever wields the Staff of Ultimate Power gains ultimate power. The name is not subtle. Neither is Varakh. <button class="find" data-sticker="star" aria-label="Collect the star sticker">⭐</button></p>
+    </div>
+  </div>
+</section>
+
+<section class="trio">
+  <div class="wrap">
+    <span class="eyebrow" style="display:table;margin-inline:auto">Your party</span>
+    <h2>Three kids vs. the apocalypse</h2>
+    <p class="sub">Unfair fight — for the apocalypse.</p>
+    <div class="cards">
+      <article class="card">
+        <div class="badge" aria-hidden="true">⚔️</div>
+        <span class="role">Slash</span>
+        <h3>Isaac</h3>
+        <p>Leads with his heart, follows with his sword. Convinced every problem is either slashable or snackable.</p>
+      </article>
+      <article class="card">
+        <div class="badge" aria-hidden="true">✨</div>
+        <span class="role">Cast</span>
+        <h3>Clara</h3>
+        <p>Reads the tomes so the boys don't have to. Her spells sparkle, her patience does not.</p>
+      </article>
+      <article class="card">
+        <div class="badge" aria-hidden="true">🛡️</div>
+        <span class="role">Shield</span>
+        <h3>Naoto</h3>
+        <p>The wall between the party and everything with teeth. Also the best cook — the falafel is his.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="battle">
+  <div class="wrap">
+    <span class="eyebrow">Combat</span>
+    <h2>Turn-based brains, real-time reflexes</h2>
+    <p class="sub">Plan your turn like a chess master, then survive the enemy's like an action hero. <button class="find" data-sticker="sword" aria-label="Collect the sword sticker">⚔️</button></p>
+    <div class="feats">
+      <div class="feat">
+        <div class="ico" aria-hidden="true">🧠</div>
+        <h3>Strategic turns</h3>
+        <p>Slash, cast, shield, inspect, and stick your way through charming and deadly enemies.</p>
+      </div>
+      <div class="feat">
+        <div class="ico" aria-hidden="true">🕹️</div>
+        <h3>Battle minigames</h3>
+        <p>Block, dodge, and parry enemy attacks in real time. Every hit you avoid is one you earned.</p>
+      </div>
+      <div class="feat">
+        <div class="ico" aria-hidden="true">⭐</div>
+        <h3>Sticker power</h3>
+        <p>Collect stickers on your travels and slap them on for buffs, builds, and bragging rights.</p>
+      </div>
+      <div class="feat">
+        <div class="ico" aria-hidden="true">🧆</div>
+        <h3>Falafel cooking</h3>
+        <p>The party marches on its stomach. Cook falafel to keep your heroes fed and fighting.</p>
+      </div>
+    </div>
+    <div class="sticker parry">
+      <p>💡 Pro tip: a perfect parry feels better than any level-up. Practice on the enemies that look huggable. They are not huggable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="worlds">
+  <div class="wrap">
+    <h2>Two worlds, zero chill</h2>
+    <div class="world-grid">
+      <article class="world world--basement">
+        <span class="deco" aria-hidden="true">📦</span>
+        <h3>The Basement Dimension</h3>
+        <p>Otherworldly, ominous, and absolutely full of boxes. What's in the boxes? Wrong question. What's in the dark behind the boxes? <button class="find" data-sticker="box" aria-label="Collect the box sticker">📦</button></p>
+      </article>
+      <article class="world world--garden">
+        <span class="deco" aria-hidden="true">🌿</span>
+        <h3>The Garden Forest</h3>
+        <p>Luscious, overgrown, and greener than it has any right to be. Every path winds, every flower is watching. <button class="find" data-sticker="leaf" aria-label="Collect the leaf sticker">🌿</button></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="falafel">
+  <div class="wrap">
+    <h2>Yes, the falafel is a mechanic</h2>
+    <p>Chickpeas → destiny. Feed your party well and they'll fight better; feed them badly and, well, you'll hear about it. <button class="find" data-sticker="falafel" aria-label="Collect the falafel sticker">🧆</button></p>
+    <div class="row" aria-hidden="true">🧆 🥬 🍋 🫓 🧆</div>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="wrap">
+    <h2>The world won't save itself</h2>
+    <div class="cta">
+      <a class="btn" href="https://store.steampowered.com/app/2711300/Quirkbound/">🎮 Play Quirkbound — $7.99</a>
+      <a class="btn btn--ghost" href="https://www.taptap.io/app/33672976">📱 Pre-register for mobile</a>
+    </div>
+    <p class="fine">Out now on PC · Made with love (and lemonade) by Blue Lemonade Games</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://store.steampowered.com/app/2711300/Quirkbound/">Steam</a>
+      <a href="https://steamcommunity.com/app/2711300">Community</a>
+      <a href="https://x.com/thebluelemonade">@thebluelemonade</a>
+      <a href="https://www.igdb.com/games/quirkbound/presskit">Press kit</a>
+    </div>
+    <p>© 2026 Blue Lemonade Games. Quirkbound and all quirks herein are bound accordingly.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var TOTAL = 5, found = {};
+  var chip = document.getElementById('albumCount');
+  var toast = document.getElementById('albumToast');
+  document.querySelectorAll('.find').forEach(function(el){
+    el.addEventListener('click', function(){
+      var id = el.getAttribute('data-sticker');
+      if(found[id]) return;
+      found[id] = true;
+      el.classList.add('found');
+      var n = Object.keys(found).length;
+      chip.textContent = n;
+      if(n === TOTAL){
+        toast.classList.add('show');
+        setTimeout(function(){ toast.classList.remove('show'); }, 4200);
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
