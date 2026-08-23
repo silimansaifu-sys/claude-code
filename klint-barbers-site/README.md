@@ -29,12 +29,12 @@ the inline script in `demos/fr/index.html`.
 
 ## Online booking (Cal.com)
 
-The booking widget is fully wired for [Cal.com](https://cal.com) — open-source
-scheduling with a free plan, real availability, calendar sync, automatic
-reminders and a Dutch-language booking flow. **Until you connect an account the
-widget falls back to the WhatsApp flow, which works out of the box.**
+The site books through [Cal.com](https://cal.com) — open-source scheduling
+with a free plan, real availability, calendar sync, automatic reminders and a
+Dutch-language booking flow. **Cal.com is enabled by default** with the demo
+username `klintbarbers`; connect your own account before launch.
 
-### Go live in 5 steps
+### Connect your own account in 5 steps
 
 1. **Create an account** at <https://cal.com/signup> and pick a username,
    e.g. `klintbarbers` → your booking page is `cal.com/klintbarbers`.
@@ -57,21 +57,23 @@ widget falls back to the WhatsApp flow, which works out of the box.**
    slots are blocked automatically and double bookings are impossible. Under
    *Workflows* you can add automatic e-mail reminders for customers (SMS/
    WhatsApp reminders require a paid Cal.com team plan).
-5. **Flip the switch**: in `index.html`, find `CAL_CONFIG` and set
-   `enabled: true` (and `username` if it differs). Done.
+5. **Point the site at your account**: in `index.html`, find `CAL_CONFIG`
+   and set `username` to yours. Done.
 
-### What changes when Cal.com is enabled
+### How the booking flow behaves
 
-- The submit button becomes **"Bevestig Afspraak"** (calendar icon) and opens
+- The submit button reads **"Bevestig Afspraak"** (calendar icon) and opens
   the Cal.com overlay in the page, pre-filled with the chosen service and day —
   showing *real* availability, in the site's dark/gold theme.
 - If the Cal.com embed script is blocked or fails to load, the button's
   plain link goes to the same Cal.com booking page, so booking still works.
-  (The widget itself needs JavaScript; for the rare no-JS visitor the
-  WhatsApp button and the phone links are the working fallback.)
-- The floating WhatsApp button stays, so customers can still reach you directly.
 - The Cal.com embed script is loaded lazily, only when the visitor scrolls
   near the booking section — it never slows down page load.
+- **WhatsApp flow (optional fallback)**: setting `CAL_CONFIG.enabled: false`
+  switches the widget to a WhatsApp flow — the button opens a chat with the
+  visitor's booking details pre-filled. That requires a number in
+  `BOOKING_CONFIG.whatsapp`; with Cal.com disabled *and* no number, the
+  button stays safely disabled.
 
 Bookings arrive in your Cal.com dashboard, your connected calendar, and by
 e-mail.
@@ -96,15 +98,21 @@ page load.
 - **Services & prices**: the service cards in the *Diensten* section (HTML) and
   `BOOKING_CONFIG.services` (JS). When Cal.com is enabled, also update the
   event types there.
-- **Phone number**: appears in the header, footer, and JSON-LD (`tel:` links
-  and display text). Both WhatsApp links — the booking widget and the floating
-  button — read `BOOKING_CONFIG.whatsapp` (digits only), so that's the single
-  place to change the WhatsApp number.
-- ⚠️ **Address check**: the footer and JSON-LD say *Hofnarlaan 2*, but the
-  photo caption in the *Over Ons* section says *Voorstraat 88*. Both were left
-  as-is (visible content) — correct whichever one is wrong. While you're at
-  it, add the postcode to the JSON-LD `address` (`"postalCode": "…"`) —
-  it strengthens the match with your Google Business Profile.
+- **Phone / WhatsApp number**: the site ships **without** a phone number
+  (demo). To add one: put it in `BOOKING_CONFIG.whatsapp` (digits only, incl.
+  country code, e.g. `31612345678`) — that single setting turns the floating
+  WhatsApp button into a real `wa.me` link (and powers the widget's WhatsApp
+  fallback when Cal.com is disabled). While it's empty, the floating button
+  safely scrolls to the booking section instead. If you also want a visible/
+  dialable number, add a `tel:` link back in the header, the mobile menu, the
+  footer *Contact* list, and a `"telephone"` property in the JSON-LD block
+  in `<head>`.
+- **Address**: *Klintstraat 12, Utrecht* is a **fictional demo address**.
+  Replace it with the real one in three spots: the footer *Contact* list,
+  the photo caption in the *Over Ons* section, and `streetAddress` in the
+  JSON-LD block. While you're at it, add the postcode to the JSON-LD
+  `address` (`"postalCode": "…"`) — it strengthens the match with your
+  Google Business Profile.
 
 ## Before launch — owner decisions
 

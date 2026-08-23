@@ -611,11 +611,10 @@
     "@id": "https://klintbarbers.nl/#barbershop",
     "name": "Klint Barbers",
     "image": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1200&h=630&q=80&auto=format&fit=crop",
-    "telephone": "+31 6 42265456",
     "email": "info@klintbarbers.nl",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Hofnarlaan 2",
+      "streetAddress": "Klintstraat 12",
       "addressLocality": "Utrecht",
       "addressCountry": "NL"
     },
@@ -656,12 +655,8 @@
           <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
         </nav>
 
-        <!-- Phone + mobile toggle -->
+        <!-- Language + mobile toggle -->
         <div class="flex items-center gap-4">
-          <a href="tel:+31642265456" class="hidden md:inline-flex items-center gap-2 text-brand-gold hover:text-brand-goldBright text-sm font-medium" style="transition: color 200ms var(--ease-out-soft);">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span class="mono-num">+31 6 42265456</span>
-          </a>
           <!-- Language toggle: shows the language you can switch TO -->
           <button id="lang-toggle" type="button" class="lang-toggle" aria-label="Switch to English">EN</button>
           <!-- Mobile menu toggle -->
@@ -685,7 +680,6 @@
         <a href="#contact" class="mobile-link block py-4 text-2xl wordmark border-b border-brand-cream/10" data-i18n="nav.contact">Contact</a>
 
         <div class="mt-auto pt-10 space-y-4">
-          <a href="tel:+31642265456" class="flex items-center gap-2 text-brand-gold mono-num">+31 6 42265456</a>
           <a href="#boeken" class="mobile-link btn btn-gold w-full" data-i18n="cta.appointment">Prendre Rendez-vous</a>
         </div>
       </div>
@@ -791,7 +785,7 @@
             <!-- Gradient overlay + corner caption -->
             <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(12,12,12,0.55), transparent 45%);"></div>
             <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between text-brand-cream">
-              <div class="font-serif italic text-sm">Voorstraat 88</div>
+              <div class="font-serif italic text-sm">Klintstraat 12</div>
               <div class="mono-num text-[10px] tracking-widest text-brand-cream/80">EST. 2019</div>
             </div>
           </div>
@@ -1162,9 +1156,8 @@
         <div class="md:col-span-3">
           <div class="eyebrow mb-4">Contact</div>
           <ul class="space-y-2.5 text-sm">
-            <li><a href="tel:+31642265456" class="text-brand-gold mono-num hover:text-brand-goldBright" style="transition: color 200ms var(--ease-out-soft);">+31 6 42265456</a></li>
             <li><a href="mailto:info@klintbarbers.nl" class="text-brand-cream/65 hover:text-brand-gold" style="transition: color 200ms var(--ease-out-soft);">info@klintbarbers.nl</a></li>
-            <li class="text-brand-cream/65">Hofnarlaan 2, Utrecht</li>
+            <li class="text-brand-cream/65">Klintstraat 12, Utrecht</li>
           </ul>
           <div class="flex items-center gap-3 mt-5">
             <a id="footer-ig" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full border border-brand-cream/20 flex items-center justify-center text-brand-cream/65 hover:text-brand-gold hover:border-brand-gold" style="transition: color 200ms var(--ease-out-soft), border-color 200ms var(--ease-out-soft);">
@@ -1184,7 +1177,7 @@
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a href="https://wa.me/31642265456" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="WhatsApp">
+  <a href="#boeken" class="whatsapp-fab" aria-label="WhatsApp">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/>
     </svg>
@@ -1575,10 +1568,10 @@
     // ════════════════════════════════════════════════════════
     //  ONLINE BOOKING — Cal.com  (https://cal.com)
     // ════════════════════════════════════════════════════════
-    //  The widget is fully wired for Cal.com. Until an account is connected
-    //  it falls back to the WhatsApp flow, which works out of the box.
-    //
-    //  Go live with real online booking (the free plan is enough):
+    //  Cal.com is the site's booking flow: the button opens the Cal.com
+    //  booking overlay pre-filled with the chosen service and day, showing
+    //  REAL availability. `username` below is a demo account — connect your
+    //  own before launch (the free plan is enough):
     //   1. Create an account on https://cal.com and pick a username
     //      (e.g. "klintbarbers" → cal.com/klintbarbers).
     //   2. Create one event type per service with these exact slugs:
@@ -1587,13 +1580,12 @@
     //      (Or use your own slugs and update `events` below.)
     //   3. In Cal.com, set your availability to match the shop hours and
     //      connect your (Google) calendar so double bookings are impossible.
-    //   4. Set `enabled: true` below. The button then opens the Cal.com
-    //      booking overlay pre-filled with the chosen service and day,
-    //      showing REAL availability. WhatsApp stays available via the
-    //      floating button. See README.md for the full walkthrough.
+    //   4. Put your username in `username` below. Setting `enabled: false`
+    //      instead switches the widget to the WhatsApp flow — that needs
+    //      BOOKING_CONFIG.whatsapp filled in. See README.md for details.
     const CAL_CONFIG = {
-      enabled: false,                 // <-- flip to true once your Cal.com account is set up
-      username: 'klintbarbers',       // <-- your cal.com username
+      enabled: true,                  // Cal.com is the site's booking flow
+      username: 'klintbarbers',       // <-- demo account; replace with your own cal.com username
       events: {                       // service id -> cal.com event slug
         knippen: 'knippen',
         baard: 'baard-trimmen',
@@ -1654,7 +1646,8 @@
         { id: 'compleet', label: { fr: 'Formule Complète', en: 'Complete Package' }, duration: 60, price: 30 },
       ],
       slotInterval: 30,
-      whatsapp: '31642265456',
+      whatsapp: '',                  // <-- WhatsApp number: digits only incl. country code, e.g. '31612345678'.
+                                     //     Empty = floating button scrolls to #boeken instead of opening WhatsApp.
       bookingHorizonDays: 21,
       dayNames: {
         fr: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
@@ -1687,10 +1680,15 @@
       const $timeStep = document.getElementById('bw-time-step');
       if (!$services) return;
 
-      // Keep the floating WhatsApp button on the same number as the widget,
-      // so BOOKING_CONFIG.whatsapp is the single place to change it.
+      // The floating WhatsApp button follows BOOKING_CONFIG.whatsapp — the
+      // single place to set the number. While it's empty the button keeps
+      // its safe in-page link to the booking section (#boeken).
       const fab = document.querySelector('.whatsapp-fab');
-      if (fab) fab.href = `https://wa.me/${BOOKING_CONFIG.whatsapp}`;
+      if (fab && BOOKING_CONFIG.whatsapp) {
+        fab.href = `https://wa.me/${BOOKING_CONFIG.whatsapp}`;
+        fab.target = '_blank';
+        fab.rel = 'noopener';
+      }
 
       // Local-timezone date key (YYYY-MM-DD) — toISOString would shift the
       // date around midnight because it converts to UTC.
@@ -1915,8 +1913,13 @@
             const slug = CAL_CONFIG.events[service.id] || service.id;
             const iso = toKey(date);
             $submit.href = `https://cal.com/${encodeURIComponent(CAL_CONFIG.username)}/${encodeURIComponent(slug)}?date=${iso}&month=${iso.slice(0, 7)}`;
-          } else {
+          } else if (BOOKING_CONFIG.whatsapp) {
             $submit.href = buildWhatsAppLink();
+          } else {
+            // Neither Cal.com nor a WhatsApp number configured — keep the
+            // button disabled rather than emit a broken wa.me link.
+            $submit.setAttribute('aria-disabled', 'true');
+            $submit.href = '#';
           }
         } else {
           $submit.setAttribute('aria-disabled', 'true');
