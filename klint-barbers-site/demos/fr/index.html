@@ -400,6 +400,15 @@
       border-color: var(--gold);
       background: rgba(212, 167, 62, 0.08);
     }
+    /* Fully booked (live Cal.com availability) */
+    .bw-date:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    .bw-date:disabled:hover {
+      border-color: rgba(244, 237, 226, 0.08);
+      background: rgba(244, 237, 226, 0.02);
+    }
     .bw-date-day {
       font-size: 11px; font-weight: 600;
       letter-spacing: 0.12em; text-transform: uppercase;
@@ -1718,6 +1727,112 @@
         }
       };
 
+      // ── Live availability (Cal.com public slots API) ──────────────
+      // With Cal.com enabled, each service selection pulls the *live*
+      // free slots for the whole booking horizon, so times someone
+      // already booked disappear from the strip — and return once a
+      // booking is cancelled. The cache refreshes every minute and on
+      // tab re-focus. Any failure (account not set up yet, offline,
+      // blocked) simply leaves the opening-hours grid as the fallback.
+      const LIVE_TTL = 60 * 1000;
+      const liveAvail = new Map(); // service.id -> {at, pending, byDate: {iso -> Set('HH:MM')}}
+
+      // A slot's start in the shop's clock, as the widget labels it.
+      function shopHHMM(startIso) {
+        const d = new Date(startIso);
+        if (isNaN(d)) return null;
+        try {
+          return d.toLocaleTimeString('nl-NL', { timeZone: 'Europe/Amsterdam', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+        } catch (_) {
+          return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+        }
+      }
+
+      function fetchLiveSlots(svc) {
+        if (!CAL_CONFIG.enabled || typeof fetch !== 'function') return;
+        const cached = liveAvail.get(svc.id);
+        if (cached && (cached.pending || Date.now() - cached.at < LIVE_TTL)) return;
+        liveAvail.set(svc.id, { at: cached ? cached.at : 0, pending: true, byDate: cached ? cached.byDate : null });
+        const start = shopNow();
+        start.setHours(0, 0, 0, 0);
+        const end = new Date(start);
+        end.setDate(start.getDate() + BOOKING_CONFIG.bookingHorizonDays);
+        const slug = CAL_CONFIG.events[svc.id] || svc.id;
+        const qs = new URLSearchParams({
+          username: CAL_CONFIG.username,
+          eventTypeSlug: slug,
+          start: toKey(start),
+          end: toKey(end),
+          timeZone: 'Europe/Amsterdam',
+        });
+        fetch(`https://api.cal.com/v2/slots?${qs}`, { headers: { 'cal-api-version': '2024-09-04' } })
+          .then((r) => (r.ok ? r.json() : null))
+          .then((json) => {
+            const days = json && json.status === 'success' && json.data && typeof json.data === 'object' ? json.data : null;
+            if (!days) { liveAvail.delete(svc.id); return; }
+            const byDate = {};
+            Object.keys(days).forEach((iso) => {
+              const set = new Set();
+              (Array.isArray(days[iso]) ? days[iso] : []).forEach((s) => {
+                const t = s && shopHHMM(s.start || s.time || s);
+                if (t) set.add(t);
+              });
+              byDate[iso] = set;
+            });
+            liveAvail.set(svc.id, { at: Date.now(), pending: false, byDate });
+            if (state.service && state.service.id === svc.id) refreshAvailability();
+          })
+          .catch(() => { liveAvail.delete(svc.id); });
+      }
+
+      // No live data (yet) counts as available — the grid is the fallback.
+      const liveByDate = () => {
+        const entry = state.service && liveAvail.get(state.service.id);
+        return entry && entry.byDate ? entry.byDate : null;
+      };
+      const dayHasSlots = (iso) => {
+        const a = liveByDate();
+        if (!a) return true;
+        const s = a[iso];
+        return !!(s && s.size);
+      };
+      const timeIsFree = (iso, label) => {
+        const a = liveByDate();
+        if (!a) return true;
+        const s = a[iso];
+        return !!(s && s.has(label));
+      };
+
+      // Fresh availability arrived: re-render the strips, keeping the
+      // visitor's selection wherever it is still bookable.
+      function refreshAvailability() {
+        if (!state.service) return;
+        const selIso = state.date ? toKey(state.date) : null;
+        const selTime = state.time;
+        renderDates();
+        if (!selIso) { updateSummary(); return; }
+        const dayBtn = $dates.querySelector(`.bw-date[data-iso="${selIso}"]`);
+        if (dayBtn && !dayBtn.disabled) {
+          dayBtn.classList.add('is-selected');
+          dayBtn.setAttribute('aria-pressed', 'true');
+          renderTimes(state.date);
+          const timeBtn = selTime ? $times.querySelector(`.bw-time[data-time="${selTime}"]`) : null;
+          if (timeBtn) {
+            timeBtn.classList.add('is-selected');
+            timeBtn.setAttribute('aria-pressed', 'true');
+          } else {
+            state.time = null; // their pick was just booked by someone else
+          }
+        } else {
+          state.date = null;
+          state.time = null;
+          $timeStep.classList.add('bw-step--disabled');
+          $times.innerHTML = '';
+          $empty.classList.remove('show');
+        }
+        updateSummary();
+      }
+
       // Never follow the link while incomplete (aria-disabled anchors are
       // still keyboard-activatable even with pointer-events: none). With the
       // Cal.com embed active, open its overlay from the *current* selection;
@@ -1746,6 +1861,7 @@
         const today = shopNow();
         today.setHours(0, 0, 0, 0);
         if (renderedDayKey && toKey(today) !== renderedDayKey) selectService(state.service);
+        else fetchLiveSlots(state.service); // pick up bookings/cancellations made meanwhile
       });
 
       // With Cal.com enabled: adjust copy, swap WhatsApp icon for a calendar,
@@ -1792,6 +1908,7 @@
       function selectService(svc) {
         state.service = svc;
         state.date = null; state.time = null;
+        fetchLiveSlots(svc);
         $services.querySelectorAll('.bw-service').forEach(el => {
           const on = el.dataset.id === svc.id;
           el.classList.toggle('is-selected', on);
@@ -1815,17 +1932,22 @@
           d.setDate(today.getDate() + i);
           const hours = BOOKING_CONFIG.hours[d.getDay()];
           if (!hours) continue;
+          const iso = toKey(d);
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'bw-date';
-          btn.dataset.iso = toKey(d);
+          btn.dataset.iso = iso;
           btn.setAttribute('aria-pressed', 'false');
           btn.innerHTML = `
             <div class="bw-date-day">${dayNames()[d.getDay()]}</div>
             <div class="bw-date-num">${d.getDate()}</div>
             <div class="bw-date-month">${monthNames()[d.getMonth()]}</div>
           `;
-          btn.addEventListener('click', () => selectDate(d));
+          if (dayHasSlots(iso)) {
+            btn.addEventListener('click', () => selectDate(d));
+          } else {
+            btn.disabled = true; // fully booked on Cal.com
+          }
           $dates.appendChild(btn);
         }
       }
@@ -1855,7 +1977,8 @@
         const dur = state.service?.duration || 30;
         const closeMin = closeH * 60 + closeM - dur;
         const now = shopNow();
-        const isToday = toKey(d) === toKey(now);
+        const iso = toKey(d);
+        const isToday = iso === toKey(now);
         const nowMin = now.getHours() * 60 + now.getMinutes();
         let slots = 0;
         for (let m = openMin; m <= closeMin; m += BOOKING_CONFIG.slotInterval) {
@@ -1863,6 +1986,7 @@
           const h = Math.floor(m / 60);
           const mm = m % 60;
           const label = `${String(h).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+          if (!timeIsFree(iso, label)) continue; // booked on Cal.com
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'bw-time';

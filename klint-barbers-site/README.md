@@ -65,6 +65,15 @@ username `klintbarbers`; connect your own account before launch.
 - The submit button reads **"Bevestig Afspraak"** (calendar icon) and opens
   the Cal.com overlay in the page, pre-filled with the chosen service and day —
   showing *real* availability, in the site's dark/gold theme.
+- **The site's own day/time picker is live too**: when a visitor picks a
+  service, the page fetches the real free slots from Cal.com's public API for
+  the whole booking horizon. Times that are already booked disappear from the
+  grid (and come back when a booking is cancelled); fully-booked days show as
+  dimmed, unclickable tiles. The data refreshes every minute and when the
+  visitor returns to the tab. If the request fails for any reason — account
+  not set up yet, API unreachable — the widget silently falls back to the
+  plain opening-hours grid, and the Cal.com overlay remains the gatekeeper
+  that makes double bookings impossible either way.
 - If the Cal.com embed script is blocked or fails to load, the button's
   plain link goes to the same Cal.com booking page, so booking still works.
 - The Cal.com embed script is loaded lazily, only when the visitor scrolls
@@ -172,5 +181,6 @@ with full page access). A working policy for this site:
 default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com;
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
 font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com;
-frame-src https://www.instagram.com https://app.cal.com; connect-src https://app.cal.com
+frame-src https://www.instagram.com https://app.cal.com;
+connect-src https://app.cal.com https://api.cal.com
 ```
