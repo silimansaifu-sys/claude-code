@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Klint Barbers — Demo's</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Crect%20width='24'%20height='24'%20rx='4'%20fill='%230c0c0c'/%3E%3Cg%20fill='none'%20stroke='%23d4a73e'%20stroke-width='1.7'%3E%3Ccircle%20cx='7'%20cy='7.5'%20r='2.3'/%3E%3Ccircle%20cx='7'%20cy='16.5'%20r='2.3'/%3E%3Cpath%20d='M19.5%205%209%2015.2M14.6%2014.6%2019.5%2019.5M8.9%209%2011.8%2012'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0c0c0c;
+      --card-dark: #181818;
+      --gold: #d4a73e;
+      --gold-bright: #e8b94d;
+      --cream: #f4ede2;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: var(--bg-dark);
+      color: var(--cream);
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 3rem 1.25rem;
+      gap: 2.5rem;
+    }
+    .wordmark {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      font-size: 1.75rem; text-align: center;
+    }
+    .wordmark span { color: var(--gold); }
+    .eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold); text-align: center;
+      margin-top: 0.75rem;
+    }
+    .cards { display: grid; grid-template-columns: 1fr; gap: 1rem; width: 100%; max-width: 760px; }
+    @media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+    .card {
+      display: block;
+      background: var(--card-dark);
+      border: 1px solid rgba(212, 167, 62, 0.18);
+      border-radius: 2px;
+      padding: 1.75rem;
+      color: var(--cream);
+      text-decoration: none;
+      transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), border-color 240ms;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(212, 167, 62, 0.55); }
+    .card:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+    .card .num {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.35rem; color: var(--gold);
+    }
+    .card h2 { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.35rem; margin: 0.5rem 0 0.6rem; }
+    .card p { font-size: 0.875rem; line-height: 1.6; color: rgba(244, 237, 226, 0.65); }
+    .card .go { display: inline-block; margin-top: 1.1rem; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+    footer { font-size: 12px; color: rgba(244, 237, 226, 0.4); text-align: center; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wordmark">KLINT<span>BARBER</span></div>
+    <div class="eyebrow">— Demo's —</div>
+  </header>
+
+  <main class="cards">
+    <a class="card" href="nl/index.html">
+      <span class="num">01</span>
+      <h2>Nederlands</h2>
+      <p>Het origineel: Nederlandstalige site met online boeken via Cal.com.</p>
+      <span class="go">Bekijk demo →</span>
+    </a>
+    <a class="card" href="fr/index.html">
+      <span class="num">02</span>
+      <h2>Français + English</h2>
+      <p>Dezelfde site in het Frans, met een FR ⇄ EN taalknop rechtsboven — alles schakelt live, ook de boekingswidget.</p>
+      <span class="go">Bekijk demo →</span>
+    </a>
+  </main>
+
+  <footer>© Klint Barbers</footer>
+
+</body>
+</html>
